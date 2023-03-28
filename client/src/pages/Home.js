@@ -9,10 +9,17 @@ const Home = () => {
 
 
   return (
-    <div>
-      <button onClick={() => setCurrentPage(true)}>Anime</button>
-      <button onClick={() => setCurrentPage(false)}>Manga</button>
-      {currentPage ? <Anime /> : <Manga />}
+    <div className="home-wrapper">
+      
+      <div className="home-anime-maga">
+        <button className="home-btn btn btn-info" onClick={() => setCurrentPage(true)}>Anime</button>
+        <button className="home-btn btn btn-info" onClick={() => setCurrentPage(false)}>Manga</button>
+      </div>
+
+      <div className="home-content">
+        {currentPage ? <Anime /> : <Manga />}
+      </div>
+
     </div>
   )
 
