@@ -3,32 +3,20 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 
-const userSchema = new Schema({
-  firstName: {
-    type: String,
-    required: true,
-    trim: true
+// Genre Schema
+
+const genresSchema = new Schema({
+  genreId: {
+    type: Number,
+    required: true
   },
-  lastName: {
+  name: {
     type: String,
-    required: true,
-    trim: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5
-  },
-  savedAnime: [savedAnimeSchema],
-  favAnime: [favAnimeSchema],
-  savedManga: [savedMangaSchema],
-  favManga: [favMangaSchema]
+    required: true
+  }
 });
+
+// Saved Anime Schema
 
 const savedAnimeSchema = new Schema({
   animeId: {
@@ -62,6 +50,8 @@ const savedAnimeSchema = new Schema({
   }
 });
 
+//  Favourite Anime Schema
+
 const favAnimeSchema = new Schema({
   animeId: {
     type: Number
@@ -94,6 +84,8 @@ const favAnimeSchema = new Schema({
   }
 });
 
+// Saved Manga Schema
+
 const savedMangaSchema = new Schema({
   mangaId: {
     type: Number
@@ -119,6 +111,8 @@ const savedMangaSchema = new Schema({
     type: Number
   }
 });
+
+// Favourite Manga Schema
 
 const favMangaSchema = new Schema({
   mangaId: {
@@ -146,15 +140,33 @@ const favMangaSchema = new Schema({
   }
 });
 
-const genres = new Schema({
-  genreId: {
-    type: Number,
-    required: true
-  },
-  name: {
+// User Schema
+
+const userSchema = new Schema({
+  firstName: {
     type: String,
-    required: true
-  }
+    required: true,
+    trim: true
+  },
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5
+  },
+  savedAnime: [savedAnimeSchema],
+  favAnime: [favAnimeSchema],
+  savedManga: [savedMangaSchema],
+  favManga: [favMangaSchema]
 });
 
 // set up pre-save middleware to create password
