@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import SignUp from '../pages/Signup';
-import Login from '../pages/Login';
-// import Dashboard from '../'
 
 import Auth from '../utils/auth';
 
 
 const NavApp = () => {
-
-    const [showLinks, setShowLinks] = useState(false);
+const userData = Auth.loggedIn() ? Auth.getProfile() : null
 
  return (
     <>
@@ -25,26 +21,24 @@ const NavApp = () => {
             <Nav.Link as={Link} to='/'>
               Search For Manga and Anime
             </Nav.Link>
-            {/* if user is logged in show saved books and logout */}
+            {/* if user is logged in show Profile and Logout */}
             {Auth.loggedIn() ? (
               <>
-                <Nav.Link as={Link} to='/dashboard'>
-                  Checkout your Saved or Favourited Anime and Manga!
+                <Nav.Link as={Link} to='/profile'>
+                  {userData.data.firstName}'s Profile
                 </Nav.Link>
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
             ) : (
-              <Nav.Link onClick={() => setShowLinks(true)}>Login/Sign Up</Nav.Link>
+              <>
+              <Nav.Link as={Link} to='/signUp' >Signup</Nav.Link>
+              <Nav.Link as={Link} to='/login' >Login</Nav.Link>
+              </>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar> 
-        <Routes>
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-        </Routes>
   </>
 )};
 
