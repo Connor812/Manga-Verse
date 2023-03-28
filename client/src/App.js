@@ -59,14 +59,6 @@ function App() {
                 element={<Success />} 
               />
               <Route 
-                path="/orderHistory" 
-                element={<OrderHistory />} 
-              />
-              <Route 
-                path="/products/:id" 
-                element={<Detail />} 
-              />
-              <Route 
                 path="*" 
                 element={<NoMatch />} 
               />
