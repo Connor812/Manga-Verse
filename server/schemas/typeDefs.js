@@ -4,13 +4,64 @@ const typeDefs = gql`
 
   type User {
     _id: ID
+    username: String
     firstName: String
     lastName: String
     email: String
+    savedAnime: [savedAnime]
   }
 
-  type Checkout {
-    session: ID
+  type savedAnime {
+    animeId: Int
+    title: String
+    image: String
+    episodes: Int
+    description: String
+    genres: [genres]
+    trailer: String
+    duration: String
+    rating: String
+    rank: String
+  }
+
+  type favAnime {
+    animeId: Int
+    title: String
+    image: String
+    episodes: Int
+    description: String
+    genres: [genres]
+    trailer: String
+    duration: String
+    rating: String
+    rank: String
+  }
+
+  type savedManga {
+    mangaId: Int
+    title: String
+    image: String
+    chapters: Int
+    description: String
+    genres: [genres]
+    rating: String
+    rank: String
+  }
+
+  type favManga {
+    mangaId: Int
+    title: String
+    image: String
+    chapters: Int
+    description: String
+    genres: [genres]
+    rating: String
+    rank: String
+  }
+
+  type genres {
+    genreId: Int
+    name: String
   }
 
   type Auth {
@@ -20,13 +71,16 @@ const typeDefs = gql`
 
   type Query {
     user: User
-    checkout(products: [ID]!): Checkout
   }
 
   type Mutation {
-    addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-    updateUser(firstName: String, lastName: String, email: String, password: String): User
+    addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, addFavAnime: String): Auth
+    updateUser(username: String!, firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
+    addFavAnime(username: String!, addFavAnime: String!): User
+    saveFavAnime(username: String!, saveFavAnime: String!): User
+    addFavManga(username: String!, addFavManga: String!): User
+    saveFavMangfa(username: String!, saveFavManga: String!): User
   }
 `;
 
