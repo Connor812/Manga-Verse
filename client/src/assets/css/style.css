@@ -1,0 +1,26 @@
+/* homepage */
+
+.home-anime-maga {
+  width: 250px;
+  height: 60px;
+  background-color: rgb(194, 130, 234);
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.home-btn {
+  margin: 10px;
+}
+
+.home-content {
+  margin: 0 auto;
+}
+
+.home-content {
+  margin: 0 auto;
+  margin-top: 25px;
+  width: 80%;
+  min-height: 700px;
+  background-color: rgb(183, 246, 183);
+}
