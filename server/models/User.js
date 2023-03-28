@@ -24,6 +24,137 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
+  savedAnime: [savedAnimeSchema],
+  favAnime: [favAnimeSchema],
+  savedManga: [savedMangaSchema],
+  favManga: [favMangaSchema]
+});
+
+const savedAnimeSchema = new Schema({
+  animeId: {
+    type: Number
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+  },
+  episodes: {
+    type: Number,
+  },
+  description: {
+    type: String
+  },
+  genres: [genresSchema],
+  trailer: {
+    type: String
+  },
+  duration: {
+    type: String
+  },
+  rating: {
+    type: String
+  },
+  rank: {
+    type: Number
+  }
+});
+
+const favAnimeSchema = new Schema({
+  animeId: {
+    type: Number
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+  },
+  episodes: {
+    type: Number,
+  },
+  description: {
+    type: String
+  },
+  genres: [genresSchema],
+  trailer: {
+    type: String
+  },
+  duration: {
+    type: String
+  },
+  rating: {
+    type: String
+  },
+  rank: {
+    type: Number
+  }
+});
+
+const savedMangaSchema = new Schema({
+  mangaId: {
+    type: Number
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+  },
+  chapters: {
+    type: Number,
+  },
+  description: {
+    type: String
+  },
+  genres: [genresSchema],
+  rating: {
+    type: String
+  },
+  rank: {
+    type: Number
+  }
+});
+
+const favMangaSchema = new Schema({
+  mangaId: {
+    type: Number
+  },
+  title: {
+    type: String,
+    required: true
+  },
+  image: {
+    type: String,
+  },
+  chapters: {
+    type: Number,
+  },
+  description: {
+    type: String
+  },
+  genres: [genresSchema],
+  rating: {
+    type: String
+  },
+  rank: {
+    type: Number
+  }
+});
+
+const genres = new Schema({
+  genreId: {
+    type: Number,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  }
 });
 
 // set up pre-save middleware to create password
