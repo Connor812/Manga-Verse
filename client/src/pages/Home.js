@@ -20,7 +20,7 @@ const Home = () => {
         
       </div>
 
-      <div className="home-content">
+      <div>
         {currentPage ? <Anime /> : <Manga />}
       </div>
 
