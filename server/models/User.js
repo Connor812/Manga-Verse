@@ -34,25 +34,25 @@ const userSchema = new Schema({
   favAnime: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'FavAnime'
+      ref: 'Anime'
     }
   ],
   savedAnime: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'SavedAnime'
+      ref: 'Anime'
     }
   ],
   favManga: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'FavManga'
+      ref: 'Manga'
     }
   ],
   savedManga: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'SavedManga'
+      ref: 'Manga'
     }
   ],
 });
