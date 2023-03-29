@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Anime, Manga, Genres } = require('../models');
 const { update } = require('../models/User');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -20,7 +20,30 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-   
+    anime: async (parent) => {
+      try {
+        const anime = await Anime.find({});
+        return anime;
+      } catch (error) {
+        return error;
+      }
+    },
+    manga: async (parent) => {
+      try {
+        const manga = await Manga.find({});
+        return manga;
+      } catch (error) {
+        return error;
+      }
+    },
+    genres: async (parent) => {
+      try {
+        const genres = await Genres.find({})
+        return genres
+      } catch (error) {
+        return error
+      }
+    }
     // checkout: async (parent, args, context) => {
     //   const url = new URL(context.headers.referer).origin;
     //   const order = new Order({ products: args.products });
@@ -90,24 +113,80 @@ const resolvers = {
 
       return { token, user };
     },
-    addFavAnime: async (parent , { username, favAnime }) => {
-      const user = await User.findOneAndUpdate(
-        { username: username },
-        { $addToSet: { favAnime: favAnime } },
-        { new: true }
-        )
-        .then((updateUser) => {
-          if (!updateUser) {
-            return new Error('No user found.')
-          }
-        
-          return updatedUser;
 
-        }).catch((err) => {
-          return err;
-        })
+    addAnime: async (parent, anime) => {
+      try {
+        const newAnime = await Anime.create(anime);
+        return newAnime;
+      } catch (error) {
+        return error
+      }
     },
+    addManga: async (parent, manga) => {
+      try {
+        const newManga = await Manga.create(manga);
+        return newManga;
+      } catch (error) {
+        return error
+      }
+    },
+    addGenre: async (parent, genre) => {
+      try {
+        const newGenre = await Genres.create(genre);
+        return newGenre;
+      } catch (error) {
+        return error;
+      }
+    },
+    updateFavAnime: async (parent, args) => {
+      try {
+        const updatedFavAnime = await User.findOneAndUpdate(
+          { username: args.username },
+          { $addToSet: { favAnime: args.favAnime } },
+          { new: true }
+        )
+        return updatedFavAnime;
+      } catch (error) {
+        return error;
+      }
+    },
+    updateSavedAnime: async (parent, args) => {
+      try {
+        const updatedSavedAnime = await User.findOneAndUpdate(
+          { username: args.username },
+          { $addToSet: { savedAnime: args.savedAnime } },
+          { new: true }
+        )
+        return updatedSavedAnime;
+      } catch (error) {
+        return error;
+      }
+    },
+    updateFavManga: async (parent, args) => {
+      try {
+        const updatedFavManga = await User.findOneAndUpdate(
+          { username: args.username },
+          { $addToSet: { favManga: args.favManga } },
+          { new: true }
+        )
+        return updatedFavManga;
+      } catch (error) {
+        return error
+      }
+    },
+    updateSavedManga: async (parent, args) => {
+      try {
+        const updateSavedManga = await User.findOneAndUpdate(
+          { username: args.username },
+          { $addToSet: { savedManga: args.savedManga } },
+          { new: true }
+        )
+        return updateSavedManga;
+      } catch (error) {
+        return error
+      }
+    }
   }
-};
+}
 
 module.exports = resolvers;
