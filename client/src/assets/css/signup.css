@@ -1,0 +1,17 @@
+/* Signup page */
+
+.SignupContainer{
+    text-align: center;
+  }
+  
+.SignupContainer h2{
+    margin: 20px;
+  }
+  
+.SignupForm{
+  margin: 5px;
+  }
+
+label{
+    margin: 5px;
+}

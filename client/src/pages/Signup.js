@@ -31,12 +31,12 @@ function SignupForm(props) {
   };
 
   return (
-    <div className="SignupForm container my-1">
+    <div className="SignupContainer container my-1">
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className="flex-row space-between my-2">
-          <label htmlFor="username">Username:</label>
+      <h2 className="Signup signup-dark">Signup</h2>
+      <form className='SignupForm' onSubmit={handleFormSubmit}>
+        <div className="UsernameDiv flex-row space-between my-2">
+          <label className='UsernameLabel' htmlFor="username">Username:</label>
           <input
             placeholder="Username"
             name="username"
@@ -86,7 +86,7 @@ function SignupForm(props) {
           />
         </div>
         <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+          <button className="SignupBtn" type="submit">Submit</button>
         </div>
       </form>
     </div>

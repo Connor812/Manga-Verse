@@ -1,0 +1,17 @@
+/* Login page */
+
+.LoginContainer{
+    text-align: center;
+  }
+  
+.LoginContainer h2{
+    margin: 20px;
+  }
+  
+.LoginForm{
+  margin: 5px;
+  }
+
+label{
+    margin: 5px;
+}
