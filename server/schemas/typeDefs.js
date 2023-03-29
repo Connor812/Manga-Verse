@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require('apollo-server-express'); 
 
 const typeDefs = gql`
 
@@ -8,58 +8,40 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    savedAnime: [savedAnime]
+    favAnime: [ID]
+    savedAnime: [ID]
+    favManga: [ID]
+    savedManga: [ID]
   }
 
-  type savedAnime {
+  type Anime {
+    _id: ID
     animeId: Int
     title: String
     image: String
     episodes: Int
     description: String
-    genres: [genres]
+    genres: [Genres]
     trailer: String
     duration: String
     rating: String
-    rank: String
+    rank: Int
   }
 
-  type favAnime {
-    animeId: Int
-    title: String
-    image: String
-    episodes: Int
-    description: String
-    genres: [genres]
-    trailer: String
-    duration: String
-    rating: String
-    rank: String
-  }
-
-  type savedManga {
+  type Manga {
+    _id: ID
     mangaId: Int
     title: String
     image: String
     chapters: Int
     description: String
-    genres: [genres]
+    genres: [Genres]
     rating: String
-    rank: String
+    rank: Int
   }
 
-  type favManga {
-    mangaId: Int
-    title: String
-    image: String
-    chapters: Int
-    description: String
-    genres: [genres]
-    rating: String
-    rank: String
-  }
-
-  type genres {
+  type Genres {
+    _id: ID
     genreId: Int
     name: String
   }
@@ -71,16 +53,22 @@ const typeDefs = gql`
 
   type Query {
     user: User
+    anime: [Anime]
+    manga: [Manga]
+    genres: [Genres]
   }
 
   type Mutation {
     addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, addFavAnime: String): Auth
     updateUser(username: String!, firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addFavAnime(username: String!, addFavAnime: String!): User
-    saveFavAnime(username: String!, saveFavAnime: String!): User
-    addFavManga(username: String!, addFavManga: String!): User
-    saveFavMangfa(username: String!, saveFavManga: String!): User
+    addAnime(animeId: Int!, title: String!, image: String!, episodes: Int, description: String, trailer: String, duration: String, rating: String, rank: Int, genres: [ID]): Anime
+    addManga(mangaId: Int!, title: String!, image: String!, chapters: Int, description: String, rating: String, rank: Int, genres: [ID]): Manga
+    addGenre(name: String!, genreId: Int!): Genres
+    updateFavAnime(username: String!, favAnime: ID!): User
+    updateSavedAnime(username: String!, savedAnime: ID!): User
+    updateFavManga(username: String!, favManga: ID!): User
+    updateSavedManga(username: String!, savedManga: ID!): User
   }
 `;
 
