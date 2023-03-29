@@ -10,6 +10,9 @@ const animeSchema = new Schema({
       type: String,
       required: true
     },
+    japaneseTitle: {
+      type: String,
+    },
     image: {
       type: String,
     },
@@ -30,6 +33,9 @@ const animeSchema = new Schema({
     },
     rank: {
       type: Number
+    },
+    studios: {
+      name: String
     },
     genres: [
         {
