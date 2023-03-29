@@ -1,10 +1,8 @@
 const db = require('./connection');
 const { 
   User,
-  FavAnime,
-  SavedAnime,
-  FavManga,
-  SavedManga,
+  Anime,
+  Manga,
   Genres
 } = require('../models');
 
@@ -13,10 +11,8 @@ db.once('open', async () => {
   console.log('products seeded');
 
   await User.deleteMany();
-  await FavAnime.deleteMany();
-  await SavedAnime.deleteMany();
-  await FavManga.deleteMany();
-  await SavedManga.deleteMany();
+  await Anime.deleteMany();
+  await Manga.deleteMany();
   await Genres.deleteMany();
 
 // Seed Genres
@@ -30,7 +26,7 @@ console.log('Genres have been seeded');
 
   // Seed Favourite Anime
 
-const favAnime = await FavAnime.create({
+const anime = await Anime.create({
   animeId: 2,
   title: 'Berserk',
   image: 'htts://berserk.png',
@@ -43,58 +39,22 @@ const favAnime = await FavAnime.create({
   rank: 10
 });
 
-console.log('FavAnime have been seeded');
-
-// Seed Saved Anime
-
-const savedAnime = await SavedAnime.create({
-  animeId: 2,
-  title: 'Berserk',
-  image: 'htts://berserk.png',
-  episodes: 100,
-  description: 'Awesome Anime, saved anime',
-  genres: [genres._id],
-  trailer: 'https://berskertrailer.com',
-  duration: '24 min long',
-  rating: 'best of all time',
-  rank: 10
-});
-
-console.log('SavedAnime has been seeded');
+console.log('Anime have been seeded');
 
 // Seed Fav Manga
 
-const favManga = await FavManga.create({
-  animeId: 2,
+const manga = await Manga.create({
+  mangaId: 2,
   title: 'Berserk',
   image: 'htts://berserk.png',
-  episodes: 100,
+  chapters: 100,
   description: 'Awesome Manga, favManga',
   genres: [genres._id],
-  trailer: 'https://berskertrailer.com',
-  duration: '24 min long',
   rating: 'best of all time',
   rank: 10
 });
 
-console.log('FavManga has been seeded');
-
-// Seed Saved Manga
-
-const savedManga = await SavedManga.create({
-  animeId: 2,
-    title: 'Berserk',
-    image: 'htts://berserk.png',
-    episodes: 100,
-    description: 'Awesome Manga, saved Manga',
-    genres: [genres._id],
-    trailer: 'https://berskertrailer.com',
-    duration: '24 min long',
-    rating: 'best of all time',
-    rank: 10
-});
-
-console.log('SavedManga has been seeded');
+console.log('Manga has been seeded');
 
 // Seed User Data
 
@@ -104,13 +64,13 @@ console.log('SavedManga has been seeded');
     lastName: 'Savoy',
     email: 'connor@gmail.com',
     password: 'password123',
-    favAnime: [favAnime._id],
-    savedAnime: [savedAnime._id],
-    favManga: [savedManga._id],
-    savedManga: [savedManga._id]
+    favAnime: [anime._id],
+    savedAnime: [anime._id],
+    favManga: [manga._id],
+    savedManga: [manga._id]
   });
 
-  console.log('users seeded');
+  console.log('Users seeded');
 
   process.exit();
 });
