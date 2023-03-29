@@ -18,6 +18,12 @@ body {
 
 /* homepage */
 
+.anime-manga-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
 .home-anime-maga {
   width: 250px;
   height: 60px;
@@ -37,7 +43,7 @@ body {
 
 .home-content {
   margin: 0 auto;
-  margin-top: 25px;
+  margin-top: 15px;
   width: 80%;
   min-height: 700px;
   background-color: rgb(183, 246, 183);
@@ -60,6 +66,7 @@ body {
 .search-form input {
   height: 25px;
   width: 350px;
+  padding-left: 5px;
 }
 
 .search-form button {
