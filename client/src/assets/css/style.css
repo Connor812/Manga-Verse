@@ -3,6 +3,19 @@
   padding: 0;
  }
 
+html {
+  width: 100%;
+  height: 100%;
+  
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+
 /* homepage */
 
 .home-anime-maga {
@@ -54,11 +67,4 @@
   width: 60px;
   margin-left: 15px;
   border-radius: 5px;
-
-}
-
-/* Signup page */
-
-.SignupForm {
-  background: black;
 }
