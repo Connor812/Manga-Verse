@@ -16,7 +16,7 @@ const Home = () => {
         <div className="search-form">
           <form>
             <input></input>
-            <button>Search</button>
+            <button>Search!</button>
           </form>
         </div>
         
