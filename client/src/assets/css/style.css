@@ -1,3 +1,8 @@
+ * {
+  margin: 0;
+  padding: 0;
+ }
+
 /* homepage */
 
 .home-anime-maga {
@@ -6,7 +11,7 @@
   background-color: rgb(194, 130, 234);
   border-radius: 10px;
   text-align: center;
-  margin: 0 auto;
+  margin-left: 100px;
 }
 
 .home-btn {
@@ -23,4 +28,37 @@
   width: 80%;
   min-height: 700px;
   background-color: rgb(183, 246, 183);
+}
+
+/* search */
+
+.search-wrapper {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-form {
+  display: flex;
+  align-items: center;
+  height: 45px;
+}
+
+.search-form input {
+  height: 25px;
+  width: 350px;
+}
+
+.search-form button {
+  height: 25px;
+  width: 60px;
+  margin-left: 15px;
+  border-radius: 5px;
+
+}
+
+/* Signup page */
+
+.SignupForm {
+  background: black;
 }
