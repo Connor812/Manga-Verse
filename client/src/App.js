@@ -14,6 +14,7 @@ import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Profile from './pages/Profile';
+import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 
 const httpLink = createHttpLink({
@@ -40,6 +41,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+            <div>
           <StoreProvider>
             <Nav />
             <Routes>
@@ -65,6 +67,8 @@ function App() {
               />
             </Routes>
           </StoreProvider>
+          </div>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

@@ -4,6 +4,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import './assets/css/bootstrap.min.css';
 import './assets/css/style.css';
+import './assets/css/signup.css';
+import './assets/css/login.css';
+import './assets/css/footer.css';
  
 
 ReactDOM.render(

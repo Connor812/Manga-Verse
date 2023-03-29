@@ -2,19 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 
-import Auth from '../utils/auth';
 
+import Auth from '../utils/auth';
 
 const NavApp = () => {
 const userData = Auth.loggedIn() ? Auth.getProfile() : null
 
  return (
     <>
-    <Navbar bg='dark' variant='dark' expand='lg'>
+    <Navbar bg='dark' variant='dark' expand='xl'>
       <Container fluid>
         <Navbar.Brand as={Link} to='/'>
           MangaVerse
         </Navbar.Brand>
+        </Container>
+        <Container>
         <Navbar.Toggle aria-controls='navbar' />
         <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
           <Nav className='ml-auto d-flex'>
