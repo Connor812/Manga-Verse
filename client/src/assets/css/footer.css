@@ -1,13 +1,15 @@
 .Footer{
-    position: absolute;
-    bottom: 1;
-    width: 100%;
+    position: fixed;
     margin-top: 10px;
+    bottom: 0px;
+    width: 100vw;
+    background-color: #1F1F1F;
 }
 
-.FooterTitle{
+.footer-copyright{
+    width: 300px;
     color: white;
-    position: absolute;
-    margin:10px ;
+    margin:15px ;
     
 }
+

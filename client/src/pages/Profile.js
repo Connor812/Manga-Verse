@@ -1,7 +1,6 @@
 import React from 'react';
 import Auth from '../utils/auth';
 
-
 const Profile = () => {
     const userData = Auth.loggedIn ? Auth.getProfile() : null;
 	return (
