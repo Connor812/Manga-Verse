@@ -33,7 +33,6 @@ function SignupForm(props) {
   return (
     <div className="SignupContainer container my-1">
 
-
       <div className="form-wrapper">
         <h2 className="Signup signup-dark">Signup</h2>
         <form className='SignupForm' onSubmit={handleFormSubmit}>
