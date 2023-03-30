@@ -3,13 +3,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const genresSchema = new Schema({
-    genreId: {
-      type: Number,
-      required: true
-    },
     name: {
       type: String,
-      required: true
+      required: true,
+      unique: true
     }
   });
 
