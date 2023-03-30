@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import '../assets/css/profile.css';
-import Manga from '../pages/MangaProfile'; 
-import Anime from '../pages/AnimeProfile';
 import MangaProfile from '../pages/MangaProfile';
 import AnimeProfile from '../pages/AnimeProfile';
 
