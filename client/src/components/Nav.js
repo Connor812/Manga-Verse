@@ -9,7 +9,7 @@ const userData = Auth.loggedIn() ? Auth.getProfile() : null
  return (
     <>
     <Navbar bg='dark' variant='dark' expand='xl'>
-      <Container>
+      <Container fluid>
         <Navbar.Brand as={Link} to='/'>
           MangaVerse
         </Navbar.Brand>

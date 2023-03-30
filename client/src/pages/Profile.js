@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from '../utils/auth';
+import '../assets/css/profile.css';
+import MangaProfile from '../pages/MangaProfile';
+import AnimeProfile from '../pages/AnimeProfile';
 
 const Profile = () => {
+	const [currentPage, setCurrentPage] = useState(true);
     const userData = Auth.loggedIn ? Auth.getProfile() : null;
 	return (
-				<h1>{userData.data.firstName}'s Profile</h1>
+		<div className='profile-wrapper'>
+		<div>
+		<div className='ProfileHeader'>
+		<h1 className='HeaderText'>{userData.data.firstName}'s Profile</h1>
+		<button className="profile-btn btn btn-danger" onClick={() => setCurrentPage(true)}>Your Anime</button>
+        <button className="profile-btn btn btn-info" onClick={() => setCurrentPage(false)}>Your Manga</button>
+		</div>
+		<div>
+		{currentPage ? <AnimeProfile /> : <MangaProfile />}
+		</div>
+		</div>
+		</div>
 	)
 }
 
