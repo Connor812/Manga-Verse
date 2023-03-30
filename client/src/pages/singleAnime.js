@@ -4,9 +4,9 @@ import { useLocation } from 'react-router-dom';
 
 const SingleAnime = ()  => {
     const location = useLocation();
-    const anime = location?.state
+    const anime = location?.state;
     return (
-        <h1>Single Anime</h1>
+        <h1></h1>
     )
 }
 
