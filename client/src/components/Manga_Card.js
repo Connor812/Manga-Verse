@@ -1,28 +1,26 @@
 import React from 'react';
 import '../assets/css/anime_card.css'
 
-const Anime_Card = (props) => {
-    const anime = {
-        animeId: props.animes.mal_id,
-        title: props.animes.title_english,
-        title_japanese: props.animes.title_japanese,
-        image: props.animes.images.jpg.large_image_url,
-        episodes: props.animes.episodes,
-        description: props.animes.synopsis,
-        trailer: props.animes.trailer.url,
-        duration: props.animes.duration,
-        rating: props.animes.rating,
-        rank: props.animes.rank,
-        studios: props.animes.studios,
-        genres: props.animes.genres
+const Manga_Card = (props) => {
+    console.log(props)
+    const manga = {
+       mangaId: props.mangas.mal_id,
+       title: props.mangas.title_english,
+       title_japanese: props.mangas.title_japanese,
+       image: props.mangas.images.jpg.large_image_url,
+       chapters: props.mangas.chapters,
+       description: props.mangas.synopsis,
+       rank: props.mangas.rank,
+       genres: props.mangas.genres
     };
+    
     return (
             <div className='col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper'>
                 <div className='card-container'>
-                    <img className='anime-img' src={anime.image} alt={anime.title}></img>
+                    <img className='anime-img' src={manga.image} alt={manga.title}></img>
                     <div className='anime-title-container'>
-                        <div className='anime-title'>{anime.title}</div>
-                        <div className='japanese-title'>{anime.title_japanese}</div>
+                        <div className='anime-title'>{manga.title}</div>
+                        <div className='japanese-title'>{manga.title_japanese}</div>
 
                         <button className='anime-button favourite'>
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="30" height="30" viewBox="0 0 256 256">
@@ -35,9 +33,9 @@ const Anime_Card = (props) => {
                         </button>
 
                         <button className='anime-button saved'>
-                            <svg className="saved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="35" height="35">
-                                <path d="M23 5H9C7.346 5 6 6.346 6 8v19a1 1 0 0 0 1.614.789L16 21.267l8.386 6.522a.996.996 0 0 0 1.053.109A1 1 0 0 0 26 27V8c0-1.654-1.346-3-3-3zm1 19.956-7.386-5.745a.999.999 0 0 0-1.228-.001L8 24.956V8c0-.551.449-1 1-1h14c.551 0 1 .449 1 1v16.956z"></path>
-                            </svg>
+                        <svg className="saved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="35" height="35">
+                            <path d="M23 5H9C7.346 5 6 6.346 6 8v19a1 1 0 0 0 1.614.789L16 21.267l8.386 6.522a.996.996 0 0 0 1.053.109A1 1 0 0 0 26 27V8c0-1.654-1.346-3-3-3zm1 19.956-7.386-5.745a.999.999 0 0 0-1.228-.001L8 24.956V8c0-.551.449-1 1-1h14c.551 0 1 .449 1 1v16.956z"></path>
+                        </svg>
                         </button>
 
                     </div>
@@ -46,4 +44,4 @@ const Anime_Card = (props) => {
     )
 }
 
-export default Anime_Card;
+export default Manga_Card;

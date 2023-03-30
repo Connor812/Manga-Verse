@@ -1,5 +1,9 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {Navbar, Card, Container} from 'react-bootstrap';
+import '../assets/css/footer.css';
 import {Container} from 'react-bootstrap';
+
 
 
 const Footer = () => {

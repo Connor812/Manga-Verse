@@ -1,0 +1,32 @@
+.home-content {
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 80%;
+    min-height: 700px;
+    background-color: var(--background-color);
+  }
+  
+.search-wrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-form {
+    display: flex;
+    align-items: center;
+    height: 45px;
+  }
+  
+  .search-form input {
+    height: 25px;
+    width: 350px;
+    padding-left: 5px;
+  }
+  
+  .search-form button {
+    height: 25px;
+    width: 60px;
+    margin-left: 15px;
+    border-radius: 5px;
+  }

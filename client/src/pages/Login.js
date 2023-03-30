@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutations';
 import Auth from '../utils/auth';
+import '../assets/css/login.css';
 
 function Login(props) {
   const [formState, setFormState] = useState({ email: '', password: '' });

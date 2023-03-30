@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express'); 
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
 
@@ -18,26 +18,29 @@ const typeDefs = gql`
     _id: ID
     animeId: Int
     title: String
+    title_japanese: String
     image: String
     episodes: Int
     description: String
-    genres: [Genres]
     trailer: String
     duration: String
     rating: String
     rank: Int
+    studio: String
+    genres: [Genres]
   }
 
   type Manga {
     _id: ID
     mangaId: Int
     title: String
+    title_japanese: String
     image: String
     chapters: Int
     description: String
-    genres: [Genres]
-    rating: String
     rank: Int
+    author: String
+    genres: [Genres]
   }
 
   type Genres {
@@ -62,8 +65,36 @@ const typeDefs = gql`
     addUser(username: String!, firstName: String!, lastName: String!, email: String!, password: String!, addFavAnime: String): Auth
     updateUser(username: String!, firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
-    addAnime(animeId: Int!, title: String!, image: String!, episodes: Int, description: String, trailer: String, duration: String, rating: String, rank: Int, genres: [ID]): Anime
-    addManga(mangaId: Int!, title: String!, image: String!, chapters: Int, description: String, rating: String, rank: Int, genres: [ID]): Manga
+
+    # Add Anime
+    addAnime(
+    animeId: Int!,
+    title: String!, 
+    title_japanese: String, 
+    image: String!, 
+    episodes: Int, 
+    description: String, 
+    trailer: String, 
+    duration: String, 
+    rating: String, 
+    rank: Int,
+    studio: String,
+    genres: [ID]
+    ): Anime
+
+    # Add Manga
+    addManga(
+      mangaId: Int!, 
+      title: String!, 
+      title_japanese: String, 
+      image: String!, 
+      chapters: Int, 
+      description: String, 
+      rank: Int,
+      author: String
+      genres: [ID]
+      ): Manga
+
     addGenre(name: String!, genreId: Int!): Genres
     updateFavAnime(username: String!, favAnime: ID!): User
     updateSavedAnime(username: String!, savedAnime: ID!): User
