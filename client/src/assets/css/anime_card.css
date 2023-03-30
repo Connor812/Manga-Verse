@@ -1,28 +1,21 @@
 .card-wrapper {
-    height: 600px;
-    width: fit-content;
+    height: auto;
 }
 
 .card-container {
-    width: 250px;
-    height: auto;
-    position: relative;
     margin: 10px;
 }
 
 .anime-img {
     width: 250px;
-    height: auto;
     border: 0px;
     border-radius: 30px 30px 0px 0px;
     border: 3px solid var(--orange);
 }
 
 .anime-title-container {
-    width: 100%;
-    height: auto;
+    width: 250px;
     background-color: var(--orange);
-    position: absolute;
     border: 3px solid var(--orange);
     border-radius: 0px  0px  30px 30px;
 }
@@ -38,8 +31,6 @@ font-size: 20px;
 }
 
 .anime-button {
-    height: auto;
-    width: auto;
     margin: 5px;
     background: none;
     border: none;
