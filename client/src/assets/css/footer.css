@@ -1,15 +1,17 @@
 .Footer{
-    position: fixed;
-    margin-top: 10px;
-    bottom: 0px;
-    width: 100vw;
+    position: sticky;
+    display: flex;
+    align-items: center;
+    top: 100%;
+    width: 100%;
     background-color: #1F1F1F;
+    height: 100px;
+    margin-top: 30px;
 }
 
 .footer-copyright{
     width: 300px;
     color: white;
     margin:15px ;
-    
 }
 

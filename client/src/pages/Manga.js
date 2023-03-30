@@ -42,7 +42,7 @@ function Manga() {
 			</div>
 			<div className='row'>
 				{!result.data
-					? console.log('error')
+					? null
 					: result.data.map((manga) => {
 						return <Manga_Card mangas={manga} />
 					})}
