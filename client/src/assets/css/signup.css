@@ -1,15 +1,41 @@
 .SignupContainer{
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
   
-.SignupContainer h2{
+/* .SignupContainer h2{
     margin: 20px;
   }
   
 .SignupForm{
   margin: 5px;
-  }
+  } */
 
 label{
     margin: 5px;
+}
+
+.form-wrapper {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+
+  background-color: grey;
+  width: 375px;
+  min-height: 320px;
+}
+
+.form-wrapper input {
+  float: right;
+  padding-left: 5px;
+}
+
+.form-wrapper button {
+  height: 35px;
+  width: 65px;
+  border-radius: 5px;
+  float: right;
 }
