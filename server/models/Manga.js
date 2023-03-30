@@ -10,6 +10,9 @@ const mangaSchema = new Schema({
       type: String,
       required: true
     },
+    title_japanese: {
+      type: String
+    },
     image: {
       type: String,
     },
@@ -19,11 +22,11 @@ const mangaSchema = new Schema({
     description: {
       type: String
     },
-    rating: {
-      type: String
-    },
     rank: {
       type: Number
+    },
+    author: {
+      type: String
     },
     genres: [
         {
