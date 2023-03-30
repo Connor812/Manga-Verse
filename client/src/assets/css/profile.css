@@ -1,0 +1,62 @@
+.profile-wrapper{
+    color: white;
+}
+
+.ProfileHeader{
+    background-color: rgba(0, 0, 0, 0.838);
+    padding: 50px;
+    border-bottom-style: ridge;
+    border-bottom-color: whitesmoke;
+}
+
+.HeaderText{
+    margin-top: -20px;
+    float: left;
+}
+
+.profile-btn{
+    margin-right: 10px;
+    margin-top: -20px;
+    float: right;
+   
+}
+
+.SavedAnime{
+    float: left;
+    text-align: center;
+    width: 40%;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.838) ;
+    margin-top: 20px;
+    margin-left: 80px
+}
+
+.FavoritedAnime{
+    float: right;
+    text-align: center;
+    width: 40%;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.838) ;
+    margin-top: 20px;
+    margin-right: 80px
+}
+
+.SavedManga{
+    float: left;
+    text-align: center;
+    width: 40%;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.838) ;
+    margin-top: 20px;
+    margin-left: 80px
+}
+
+.FavoritedManga{
+    float: right;
+    text-align: center;
+    width: 40%;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.838) ;
+    margin-top: 20px;
+    margin-right: 80px
+}
