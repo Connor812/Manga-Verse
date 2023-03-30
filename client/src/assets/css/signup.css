@@ -1,6 +1,7 @@
 .SignupContainer{
     display: flex;
     justify-content: center;
+    color: rgba(255, 255, 255, 0.827);
   }
   
 /* .SignupContainer h2{
@@ -13,6 +14,7 @@
 
 label{
     margin: 5px;
+    font-weight: bold;
 }
 
 .form-wrapper {
@@ -23,9 +25,10 @@ label{
   align-items: center;
   border-radius: 15px;
 
-  background-color: grey;
+  background-color: var(--background-color);
   width: 375px;
   min-height: 320px;
+
 }
 
 .form-wrapper input {

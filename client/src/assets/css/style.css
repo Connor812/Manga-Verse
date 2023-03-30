@@ -40,7 +40,7 @@ body {
 .home-anime-maga {
   width: 250px;
   height: 60px;
-  background-color: rgb(194, 130, 234);
+  background-color: var(--background-color);
   border-radius: 10px;
   text-align: center;
   margin-left: 100px;
