@@ -31,8 +31,11 @@ const animeSchema = new Schema({
     rank: {
       type: Number
     },
+    rating: {
+      type: String
+    },
     studios: {
-      name: String
+      type: String
     },
     genres: [
         {
