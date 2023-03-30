@@ -13,6 +13,7 @@
 
 label{
     margin: 5px;
+    font-weight: bold;
 }
 
 .login-wrapper {
@@ -23,7 +24,7 @@ label{
   align-items: center;
   border-radius: 15px;
 
-  background-color: grey;
+  background-color: var(--background-color);
   width: 375px;
   min-height: 200px;
 }
