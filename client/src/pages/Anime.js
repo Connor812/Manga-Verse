@@ -11,7 +11,6 @@ function Anime() {
 
 	const handleChange = (event) => {
 		const search = event.target.value;
-		console.log(search);
 		setSearchState(search);
 	}
 
@@ -21,7 +20,6 @@ function Anime() {
 		try {
 			const response = await fetch(`${url}?q=${search}`);
 			const data = await response.json();
-			console.log(data);
 			setResultState(data);
 		} catch (err) {
 
@@ -42,7 +40,7 @@ function Anime() {
 			</div>
 			<div className='row'>
 				{!result.data
-					? console.log('error')
+					? null
 					: result.data.map((anime) => {
 						return <Anime_Card animes={anime} />
 					})}
