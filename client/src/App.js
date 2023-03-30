@@ -16,6 +16,7 @@ import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
+import SingleAnime from './pages/singleAnime';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -40,8 +41,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
-            <div>
           <StoreProvider>
             <Nav />
             <Routes>
@@ -61,17 +60,19 @@ function App() {
                 path="/profile" 
                 element={<Profile />} 
               />
+              <Route
+              path="/singleAnime"
+              element={<SingleAnime/>}
+              />
               <Route 
                 path="*" 
-                element={<NoMatch />} 
+                element={<NoMatch />}
               />
             </Routes>
           </StoreProvider>
-          </div>
-        </div>
         <Footer />
       </Router>
-      <Footer />
+      
     </ApolloProvider>
   );
 }

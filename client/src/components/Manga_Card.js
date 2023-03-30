@@ -2,10 +2,10 @@ import React from 'react';
 import '../assets/css/anime_card.css'
 
 const Manga_Card = (props) => {
-    console.log(props)
     const manga = {
        mangaId: props.mangas.mal_id,
-       title: props.mangas.title_english,
+       title: props.mangas.title,
+       title_english: props.mangas.title_english,
        title_japanese: props.mangas.title_japanese,
        image: props.mangas.images.jpg.large_image_url,
        chapters: props.mangas.chapters,
@@ -19,7 +19,7 @@ const Manga_Card = (props) => {
                 <div className='card-container'>
                     <img className='anime-img' src={manga.image} alt={manga.title}></img>
                     <div className='anime-title-container'>
-                        <div className='anime-title'>{manga.title}</div>
+                        <div className='anime-title'>{manga.title_english ? manga.title_english : manga.title}</div>
                         <div className='japanese-title'>{manga.title_japanese}</div>
 
                         <button className='anime-button favourite'>

@@ -1,10 +1,12 @@
 import React from 'react';
-import '../assets/css/anime_card.css'
+import { Link } from 'react-router-dom';
+import '../assets/css/anime_card.css';
 
 const Anime_Card = (props) => {
     const anime = {
         animeId: props.animes.mal_id,
-        title: props.animes.title_english,
+        title: props.animes.title,
+        title_english: props.animes.title_english,
         title_japanese: props.animes.title_japanese,
         image: props.animes.images.jpg.large_image_url,
         episodes: props.animes.episodes,
@@ -19,9 +21,11 @@ const Anime_Card = (props) => {
     return (
             <div className='col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper'>
                 <div className='card-container'>
-                    <img className='anime-img' src={anime.image} alt={anime.title}></img>
+                    <Link className='image-link' to={'/singleAnime'} state={anime}>
+                    <img className='anime-img' src={anime.image} alt={anime.title} />
+                    </Link>
                     <div className='anime-title-container'>
-                        <div className='anime-title'>{anime.title}</div>
+                        <div className='anime-title'>{anime.title_english ? anime.title_english : anime.title}</div>
                         <div className='japanese-title'>{anime.title_japanese}</div>
 
                         <button className='anime-button favourite'>
