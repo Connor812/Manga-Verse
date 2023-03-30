@@ -99,7 +99,7 @@ const resolvers = {
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-
+      console.log('logged In')
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');
       }
@@ -115,14 +115,43 @@ const resolvers = {
       return { token, user };
     },
 
-    addAnime: async (parent, anime) => {
-      try {
-        const newAnime = await Anime.create(anime);
-        return newAnime;
-      } catch (error) {
-        return error
+    addAnime: async (parent, anime, context) => {
+      // if (context.user) {
+        console.log("works");
+        console.log(anime);
+        let genresId = [];
+
+        if (anime.genres.length > 0) {
+        genresId = await Promise.all(anime.genres.map(async (genreName) => {
+          try {
+            console.log(genreName)
+            const genre = await Genres.findOne({ name: genreName });
+            console.log(genre);
+            return genre._id;
+          } catch (err) {
+            console.log('error');
+          }
+        }));
+
+        anime.genres = genresId;
+        console.log(anime);
+      } else {
+        anime.genres = []
       }
+
+
+        try {
+          const newAnime = await Anime.create(anime);
+          return newAnime;
+        } catch (error) {
+          return error
+        }
+      // }
+
+      // throw new AuthenticationError('Not logged in');
+
     },
+
     addManga: async (parent, manga) => {
       try {
         const newManga = await Manga.create(manga);
