@@ -28,7 +28,7 @@ function Anime() {
 
 	return (
 		<div className='home-content'>
-			<h1>Anime</h1>
+			<h2 className='anime-page-title'>Anime</h2>
 
 			<div className="search-wrapper">
 				<div className="search-form">
