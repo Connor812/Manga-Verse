@@ -30,7 +30,7 @@ function Manga() {
 
 	return (
 		<div className='home-content'>
-			<h1>Manga</h1>
+			<h2 className='manga-page-title'>Manga</h2>
 
 			<div className="search-wrapper">
 				<div className="search-form">
