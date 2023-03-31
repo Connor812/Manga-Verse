@@ -13,8 +13,6 @@ const resolvers = {
           populate: 'category'
         });
 
-        user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
-
         return user;
       }
 
@@ -222,7 +220,7 @@ const resolvers = {
         console.log(username); // Output: "Username"
       }
 
-      // AnimeDB ? use anime : Create new Anime
+      // MangaDB ? use anime : Create new Manga
 
       const mangaDB = await Manga.findOne({ mangaId: manga.mangaId});
       console.log(username);
@@ -285,11 +283,6 @@ const resolvers = {
 
     },
     
-
-
-
-
-
     addGenre: async (parent, genre) => {
       try {
         const newGenre = await Genres.create(genre);
