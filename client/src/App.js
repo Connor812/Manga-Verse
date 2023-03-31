@@ -7,6 +7,7 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
+import Auth from './utils/auth';
 
 import Home from './pages/Home';
 import Nav from './components/Nav';
@@ -17,6 +18,9 @@ import Profile from './pages/Profile';
 import Footer from './components/Footer';
 import { StoreProvider } from './utils/GlobalState';
 import SingleAnime from './pages/singleAnime';
+import SingleManga from './pages/singleManga';
+
+const userData = Auth.loggedIn ? Auth.getProfile() : null;
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -28,6 +32,7 @@ const authLink = setContext((_, { headers }) => {
     headers: {
       ...headers,
       authorization: token ? `Bearer ${token}` : '',
+      userData: userData ? JSON.stringify(userData) : '',
     },
   };
 });
@@ -63,6 +68,10 @@ function App() {
               <Route
               path="/singleAnime"
               element={<SingleAnime/>}
+              />
+              <Route
+              path="/singleManga"
+              element={<SingleManga/>}
               />
               <Route 
                 path="*" 
