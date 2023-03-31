@@ -1,11 +1,11 @@
 import React from 'react';
-import { useMutation } from '@apollo/client';
 import { Link } from 'react-router-dom';
-import { ADD_ANIME } from '../utils/mutations';
+import { useMutation } from '@apollo/client';
+import { HANDLE_ANIME } from '../utils/mutations';
 import '../assets/css/anime_card.css';
 
 const Anime_Card = (props) => {
-    const [addAnime, { error }] = useMutation(ADD_ANIME);
+    const [handleAnime, { error }] = useMutation(HANDLE_ANIME);
 
     const anime = {
         animeId: props.animes.mal_id,
@@ -23,8 +23,7 @@ const Anime_Card = (props) => {
         genres: props.animes.genres
     };
 
-    const handlerFavourite = async (anime) => {
-        
+    const handlerAnime = async (anime, favourite) => {
         if (anime.title_english) {
             anime.title = anime.title_english;
             delete anime.title_english
@@ -34,10 +33,10 @@ const Anime_Card = (props) => {
 
         let genreNames = [];
         const genreList = anime.genres
-        
+
         genreList.forEach((genre) => {
             genreNames.push(genre.name);
-            
+
         })
         anime.genres = genreNames;
 
@@ -47,27 +46,18 @@ const Anime_Card = (props) => {
             anime.studios = anime.studios[0].name;
         }
 
+        anime.isFavourite = favourite
         console.log(anime);
         try {
-            addAnime({
+            const response = handleAnime({
                 variables: anime
-              }).then((response) => {
-                console.log(response);
-              }).catch((err) => {
-                console.log(err.networkError.result.errors);
-              })
-
-
-            // const mutationResponse = await addAnime({
-            //     varibles: { anime: anime }
-            // });
-            // console.log(mutationResponse);
-        } catch (err) {
+            })
+            console.log(response)
+        }
+        catch (err) {
             console.log(err);
         }
     }
-
-
 
     return (
         <div className='col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper'>
@@ -79,7 +69,7 @@ const Anime_Card = (props) => {
                     <div className='anime-title'>{anime.title_english ? anime.title_english : anime.title}</div>
                     <div className='japanese-title'>{anime.title_japanese}</div>
 
-                    <button className='anime-button favourite' onClick={() => handlerFavourite(anime)}>
+                    <button className='anime-button favourite' onClick={() => handlerAnime(anime, true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="30" height="30" viewBox="0 0 256 256">
                             <defs>
                             </defs>
@@ -89,7 +79,7 @@ const Anime_Card = (props) => {
                         </svg>
                     </button>
 
-                    <button className='anime-button saved'>
+                    <button className='anime-button saved' onClick={() => handlerAnime(anime, false)}>
                         <svg className="saved" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="35" height="35">
                             <path d="M23 5H9C7.346 5 6 6.346 6 8v19a1 1 0 0 0 1.614.789L16 21.267l8.386 6.522a.996.996 0 0 0 1.053.109A1 1 0 0 0 26 27V8c0-1.654-1.346-3-3-3zm1 19.956-7.386-5.745a.999.999 0 0 0-1.228-.001L8 24.956V8c0-.551.449-1 1-1h14c.551 0 1 .449 1 1v16.956z"></path>
                         </svg>
