@@ -2,13 +2,14 @@
   margin: 0;
   padding: 0;
 }
-.single-anime-wrapper {
+
+.single-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.single-anime-content {
+.single-content {
   margin-top: 25px;
   display: flex;
   justify-content:flex-start;
@@ -20,44 +21,54 @@
   background-color: var(--background-color);
 }
 
-.single-anime-title {
+.single-title {
   margin-top: 25px;
   font-size: 32px;
   color: rgba(255, 255, 255, 0.846);
 }
 
-.single-anime-title_japanese {
+.single-title_japanese {
   color: rgba(255, 255, 255, 0.846);
   font-size: 18px;
 
 }
 
-.single-anime-img {
+.single-img {
   margin-top: 10px;
   height: 500px;
   border-radius: 15px;
 }
 
-.single-anime-info {
+.single-info {
   margin-top: 25px;
   color: rgba(255, 255, 255, 0.846);
   font-size: 16px;
 }
 
-.single-anime-info p {
+.single-info p {
   margin: 5px 0 5px 0;
 }
 
-.single-amine-description {
+.single-description {
   color: rgba(255, 255, 255, 0.846);
   margin-top: 25px;
   padding: 0 55px 0 55px;
 }
 
-.single-amine-button {
+.single-button {
   appearance: none;
   margin-bottom: 25px;
   height: 45px;
   width: 150px;
   border-radius: 15px;
+}
+
+/* manga */
+
+.single-author {
+  width: 450px;;
+}
+
+.single-author span {
+  font-size: 15px;
 }
