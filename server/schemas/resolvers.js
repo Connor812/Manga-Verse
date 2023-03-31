@@ -6,18 +6,46 @@ const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
-    user: async (parent, args, context) => {
+    me: async (parent, arg, context) => {
       if (context.user) {
-        const user = await User.findById(context.user._id).populate({
-          path: 'orders.products',
-          populate: 'category'
-        });
+        const user = context
+        const userData = await User.findById(user.user._id)
+        .populate({
+          path: 'favAnime',
+          populate: {
+            path: 'genres',
+            model: 'Genres'
+          }
+        })
+        .populate('favManga')
+        .populate('savedAnime')
+        .populate('savedManga')
+        .exec();
 
-        return user;
+        console.log("hello", userData)
+        return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
+
+    user: async (parent, arg) => {
+        const userData = await User.findById(arg._id)
+        .populate({
+          path: 'favAnime',
+          populate: {
+            path: 'genres',
+            model: 'Genres'
+          }
+        })
+        .populate('favManga')
+        .populate('savedAnime')
+        .populate('savedManga')
+        .exec();
+
+        return userData;
+      },
+
     anime: async (parent) => {
       try {
         const anime = await Anime.find({});

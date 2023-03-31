@@ -8,10 +8,10 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    favAnime: [ID]
-    savedAnime: [ID]
-    favManga: [ID]
-    savedManga: [ID]
+    favAnime: [Anime]
+    savedAnime: [Anime]
+    favManga: [Manga]
+    savedManga: [Manga]
   }
 
   type Anime {
@@ -52,7 +52,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    user: User
+    me: User
+    user(_id: ID!): User
     anime: [Anime]
     manga: [Manga]
     genres: [Genres]

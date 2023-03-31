@@ -8,12 +8,14 @@ const userData = Auth.loggedIn() ? Auth.getProfile() : null
 
  return (
     <>
-    <Navbar bg='dark' variant='dark' expand='xl'>
-      <Container fluid>
+    <Navbar bg='dark' variant='dark'>
+      
+      <div className='header-logo-link'>
         <Navbar.Brand as={Link} to='/'>
           MangaVerse
         </Navbar.Brand>
-        </Container>
+      </div>
+
         <Container>
         <Navbar.Toggle aria-controls='navbar' />
         <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
@@ -25,7 +27,7 @@ const userData = Auth.loggedIn() ? Auth.getProfile() : null
             {Auth.loggedIn() ? (
               <>
                 <Nav.Link as={Link} to='/profile'>
-                  {userData.username}'s Profile
+                  {userData.firstName}'s Profile
                 </Nav.Link>
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
