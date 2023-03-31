@@ -14,7 +14,7 @@ const AnimeProfile = () => {
 		) : (
 	<div>
       <div className="SavedAnime">
-        <h3>Your Saved Anime</h3>
+        <h3>Your Watchlist</h3>
 		<p>{data.me.savedAnime[0].title}</p>
       </div>
       <div className="FavoritedAnime">
