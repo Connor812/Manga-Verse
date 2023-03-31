@@ -25,7 +25,7 @@ const userData = Auth.loggedIn() ? Auth.getProfile() : null
             {Auth.loggedIn() ? (
               <>
                 <Nav.Link as={Link} to='/profile'>
-                  {userData.username}'s Profile
+                  {userData.firstName}'s Profile
                 </Nav.Link>
                 <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
               </>
