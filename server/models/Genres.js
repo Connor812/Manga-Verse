@@ -7,6 +7,9 @@ const genresSchema = new Schema({
       type: String,
       required: true,
       unique: true
+    },
+    genreId: {
+      type: Number
     }
   });
 
