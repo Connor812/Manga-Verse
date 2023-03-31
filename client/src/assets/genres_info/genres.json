@@ -1,218 +1,286 @@
 [
     {
-        "name": "Action"
+        "name": "Action",
+        "genreId": 1
     },
     {
-        "name": "Adventure"
+        "name": "Adventure",
+        "genreId": 2
     },
     {
-        "name": "Avamt Garde"
+        "name": "Avant Garde",
+        "genreId": 5
     },
     {
-        "name": "Award Winnig"
+        "name": "Award Winnig",
+        "genreId": 46
     },
     {
-        "name": "Boys Love"
+        "name": "Boys Love",
+        "genreId": 28
     },
     {
-        "name": "Comdey"
+        "name": "Comdey",
+        "genreId": 4
     },
     {
-        "name": "Drama"
+        "name": "Drama",
+        "genreId": 8
     },
     {
-        "name": "Fantasy"
+        "name": "Fantasy",
+        "genreId": 10
     },
     {
-        "name": "Girls Love"
+        "name": "Girls Love",
+        "genreId": 26
     },
     {
-        "name": "Gourmet"
+        "name": "Gourmet",
+        "genreId": 47
     },
     {
-        "name": "Horror"
+        "name": "Horror",
+        "genreId": 14
     },
     {
-        "name": "Mystery"
+        "name": "Mystery",
+        "genreId": 7
     },
     {
-        "name": "Romance"
+        "name": "Romance",
+        "genreId": 22
     },
     {
-        "name": "Sci-Fi"
+        "name": "Sci-Fi",
+        "genreId": 24
     },
     {
-        "name": "Slice of Life"
+        "name": "Slice of Life",
+        "genreId": 36
     },
     {
-        "name": "Sports"
+        "name": "Sports",
+        "genreId": 30
     },
     {
-        "name": "Supernatural"
+        "name": "Supernatural",
+        "genreId": 37
     },
     {
-        "name": "Suspense"
+        "name": "Suspense",
+        "genreId": 41
     },
     {
-        "name": "Ecchi"
+        "name": "Ecchi",
+        "genreId": 9
     },
     {
-        "name": "Erotica"
+        "name": "Erotica",
+        "genreId": 49
     },
     {
-        "name": "Anthropomorphic"
+        "name": "Anthropomorphic",
+        "genreId": 51
     },
     {
-        "name": "CGDCT"
+        "name": "CGDCT",
+        "genreId": 52
     },
     {
-        "name": "Childcare"
+        "name": "Childcare",
+        "genreId": 53
     },
     {
-        "name": "Combat Sports"
+        "name": "Combat Sports",
+        "genreId": 54
     },
     {
-        "name": "Detective"
+        "name": "Detective",
+        "genreId": 39
     },
     {
-        "name": "Delinquents"
+        "name": "Delinquents",
+        "genreId": 55
     },
     {
-        "name": "Educational"
+        "name": "Educational",
+        "genreId": 56
     },
     {
-        "name": "Gag Humor"
+        "name": "Gag Humor",
+        "genreId": 57
     },
     {
-        "name": "Gore"
+        "name": "Gore",
+        "genreId": 58
     },
     {
-        "name": "Harem"
+        "name": "Harem",
+        "genreId": 35
     },
     {
-        "name": "High Stakes Games"
+        "name": "High Stakes Games",
+        "genreId": 59
     },
     {
-        "name": "Historical"
+        "name": "Historical",
+        "genreId": 13
     },
     {
-        "name": "Idols (Female)"
+        "name": "Idols (Female)",
+        "genreId": 60
     },
     {
-        "name": "Idols (Male)"
+        "name": "Idols (Male)",
+        "genreId": 61
     },
     {
-        "name": "Isekai"
+        "name": "Isekai",
+        "genreId": 62
     },
     {
-        "name": "Iyashikei"
+        "name": "Iyashikei",
+        "genreId": 63
     },
     {
-        "name": "Love Polygon"
+        "name": "Love Polygon",
+        "genreId": 64
     },
     {
-        "name": "Magou Shoujo"
+        "name": "Magou Shoujo",
+        "genreId": 66
     },
     {
-        "name": "Martial Arts"
+        "name": "Martial Arts",
+        "genreId": 17
     },
     {
-        "name": "Mecha"
+        "name": "Mecha",
+        "genreId": 18
     },
     {
-        "name": "Medical"
+        "name": "Medical",
+        "genreId": 67
     },
     {
-        "name": "Memoir"
+        "name": "Military",
+        "genreId": 38
     },
     {
-        "name": "Military"
+        "name": "Music",
+        "genreId": 19
     },
     {
-        "name": "Music"
+        "name": "Mythology",
+        "genreId": 6
     },
     {
-        "name": "Mythology"
+        "name": "Organized Crime",
+        "genreId": 68
     },
     {
-        "name": "Organized Crime"
+        "name": "Otaku Culture",
+        "genreId": 69
     },
     {
-        "name": "Otaku Culture"
+        "name": "Parody",
+        "genreId": 20
     },
     {
-        "name": "Parody"
+        "name": "Performing Arts",
+        "genreId": 70
     },
     {
-        "name": "Performing Arts"
+        "name": "Pets",
+        "genreId": 71
     },
     {
-        "name": "Pets"
+        "name": "Psychological",
+        "genreId": 40
     },
     {
-        "name": "Psychological"
+        "name": "Racing",
+        "genreId": 3
     },
     {
-        "name": "Racing"
+        "name": "Reincarnation",
+        "genreId": 72
     },
     {
-        "name": "Reincarnation"
+        "name": "Romantic Subtext",
+        "genreId": 74
     },
     {
-        "name": "Romantic Subtext"
+        "name": "Samuria",
+        "genreId": 21
     },
     {
-        "name": "Samuria"
+        "name": "School",
+        "genreId": 23
     },
     {
-        "name": "School"
+        "name": "Showbiz",
+        "genreId": 75
     },
     {
-        "name": "Space"
+        "name": "Space",
+        "genreId": 29
     },
     {
-        "name": "Survival"
+        "name": "Survival",
+        "genreId": 76
     },
     {
-        "name": "Strategy Game"
+        "name": "Strategy Game",
+        "genreId": 11
     },
     {
-        "name": "Super Power"
+        "name": "Super Power",
+        "genreId": 31
     },
     {
-        "name": "Team Sports"
+        "name": "Team Sports",
+        "genreId": 77
     },
     {
-        "name": "Time Travel"
+        "name": "Time Travel",
+        "genreId": 78
     },
     {
-        "name": "Vampire"
+        "name": "Vampire",
+        "genreId": 32
     },
     {
-        "name": "Video Game"
+        "name": "Video Game",
+        "genreId": 79
     },
     {
-        "name": "Villainess"
+        "name": "Visual Arts",
+        "genreId": 80
     },
     {
-        "name": "Visual Arts"
+        "name": "Workplace",
+        "genreId": 48
     },
     {
-        "name": "Workplace"
+        "name": "Josei",
+        "genreId": 43
     },
     {
-        "name": "Josei"
+        "name": "Kids",
+        "genreId": 15
     },
     {
-        "name": "Kids"
+        "name": "Seinen",
+        "genreId": 42
     },
     {
-        "name": "Seinen"
+        "name": "Shoujo",
+        "genreId": 25
     },
     {
-        "name": "Shoujo"
-    },
-    {
-        "name": "Shounen"
+        "name": "Shounen",
+        "genreId": 27
     }
 ]
