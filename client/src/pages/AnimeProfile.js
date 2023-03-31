@@ -7,7 +7,6 @@ import { useQuery } from "@apollo/client";
 const AnimeProfile = () => {
   const {loading, data} = useQuery(GET_ME);
   const userData = Auth.loggedIn ? Auth.getProfile() : null;
-  console.log(data)
   return (
 	<>
 	  {loading ? (
@@ -16,7 +15,7 @@ const AnimeProfile = () => {
 	<div>
       <div className="SavedAnime">
         <h3>Your Saved Anime</h3>
-		<p></p>
+		<p>{data.me.savedAnime[0].title}</p>
       </div>
       <div className="FavoritedAnime">
         <h3>Your Favorited Anime</h3>
