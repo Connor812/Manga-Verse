@@ -8,12 +8,14 @@ const userData = Auth.loggedIn() ? Auth.getProfile() : null
 
  return (
     <>
-    <Navbar bg='dark' variant='dark' expand='xl'>
-      <Container fluid>
+    <Navbar bg='dark' variant='dark'>
+      
+      <div className='header-logo-link'>
         <Navbar.Brand as={Link} to='/'>
           MangaVerse
         </Navbar.Brand>
-        </Container>
+      </div>
+
         <Container>
         <Navbar.Toggle aria-controls='navbar' />
         <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
