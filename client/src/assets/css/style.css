@@ -43,9 +43,14 @@ body {
   background-color: var(--background-color);
   border-radius: 10px;
   text-align: center;
-  margin-left: 100px;
 }
 
 .home-btn {
   margin: 10px;
+}
+
+/* navbar */
+
+.header-logo-link {
+  margin-left: 25px;
 }
