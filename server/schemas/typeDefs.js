@@ -64,7 +64,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     # Add Anime
-    addAnime(
+    handleAnime(
     animeId: Int!,
     title: String!, 
     title_japanese: String, 
@@ -76,20 +76,22 @@ const typeDefs = gql`
     rating: String, 
     rank: Int,
     studios: String,
-    genres: [String]
+    genres: [String],
+    isFavourite: Boolean!
     ): Anime
 
     # Add Manga
-    addManga(
+    handleManga(
       mangaId: Int!, 
       title: String!, 
       title_japanese: String, 
-      image: String!, 
+      image: String, 
       chapters: Int, 
       description: String, 
       rank: Int,
-      author: String
-      genres: [ID]
+      author: String,
+      genres: [String]
+      isFavourite: Boolean!
       ): Manga
 
     addGenre(name: String!): Genres
