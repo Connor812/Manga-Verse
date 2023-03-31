@@ -15,7 +15,6 @@ const typeDefs = gql`
   }
 
   type Anime {
-    _id: ID
     animeId: Int
     title: String
     title_japanese: String
@@ -26,12 +25,11 @@ const typeDefs = gql`
     duration: String
     rating: String
     rank: Int
-    studio: String
+    studios: String
     genres: [Genres]
   }
 
   type Manga {
-    _id: ID
     mangaId: Int
     title: String
     title_japanese: String
@@ -45,7 +43,6 @@ const typeDefs = gql`
 
   type Genres {
     _id: ID
-    genreId: Int
     name: String
   }
 
@@ -67,35 +64,37 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
 
     # Add Anime
-    addAnime(
+    handleAnime(
     animeId: Int!,
     title: String!, 
     title_japanese: String, 
-    image: String!, 
+    image: String, 
     episodes: Int, 
     description: String, 
     trailer: String, 
     duration: String, 
     rating: String, 
     rank: Int,
-    studio: String,
-    genres: [ID]
+    studios: String,
+    genres: [String],
+    isFavourite: Boolean!
     ): Anime
 
     # Add Manga
-    addManga(
+    handleManga(
       mangaId: Int!, 
       title: String!, 
       title_japanese: String, 
-      image: String!, 
+      image: String, 
       chapters: Int, 
       description: String, 
       rank: Int,
-      author: String
-      genres: [ID]
+      author: String,
+      genres: [String]
+      isFavourite: Boolean!
       ): Manga
 
-    addGenre(name: String!, genreId: Int!): Genres
+    addGenre(name: String!): Genres
     updateFavAnime(username: String!, favAnime: ID!): User
     updateSavedAnime(username: String!, savedAnime: ID!): User
     updateFavManga(username: String!, favManga: ID!): User

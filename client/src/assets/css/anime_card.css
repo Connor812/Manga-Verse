@@ -11,6 +11,14 @@
     border: 0px;
     border-radius: 30px 30px 0px 0px;
     border: 3px solid var(--main-color);
+    
+}
+
+.anime-title-container {
+    width: 250px;
+    background-color: var(--main-color);
+    border: 3px solid var(--main-color);
+    border-radius: 0px  0px  30px 30px;
 }
 
 .anime-title {

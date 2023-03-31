@@ -6,6 +6,8 @@ const {
   Genres
 } = require('../models');
 
+const genreData = require('../../client/src/assets/genres_info/genres.json');
+
 db.once('open', async () => {
 
   console.log('products seeded');
@@ -17,10 +19,7 @@ db.once('open', async () => {
 
 // Seed Genres
 
-const genres = await Genres.create({
-  genreId: 1,
-  name: "Adventure"
-});
+const genres = await Genres.insertMany(genreData);
 
 console.log('Genres have been seeded');
 
@@ -29,14 +28,16 @@ console.log('Genres have been seeded');
 const anime = await Anime.create({
   animeId: 2,
   title: 'Berserk',
+  title_japanese: 'ベルセルク',
   image: 'htts://berserk.png',
   episodes: 100,
   description: 'Awesome Anime',
-  genres: [genres._id],
   trailer: 'https://berskertrailer.com',
   duration: '24 min long',
   rating: 'best of all time',
-  rank: 10
+  rank: 10,
+  studios: 'mappa',
+  genres: [genres._id],
 });
 
 console.log('Anime have been seeded');
@@ -46,12 +47,13 @@ console.log('Anime have been seeded');
 const manga = await Manga.create({
   mangaId: 2,
   title: 'Berserk',
+  title_japanese: 'ベルセルク',
   image: 'htts://berserk.png',
   chapters: 100,
   description: 'Awesome Manga, favManga',
+  rank: 10,
+  author: 'Connor',
   genres: [genres._id],
-  rating: 'best of all time',
-  rank: 10
 });
 
 console.log('Manga has been seeded');
