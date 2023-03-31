@@ -46,8 +46,8 @@ mutation addGenre(
 }
 `;
 
-export const ADD_ANIME = gql`
-    mutation addAnime(
+export const HANDLE_ANIME = gql`
+    mutation handleAnime(
     $animeId: Int!, 
     $image: String, 
     $title: String!, 
@@ -59,9 +59,10 @@ export const ADD_ANIME = gql`
     $rank: Int, 
     $genres: [String], 
     $studios: String, 
-    $rating: String
+    $rating: String,
+    $isFavourite: Boolean!
     ) {
-  addAnime(
+  handleAnime(
   animeId: $animeId, 
   image: $image, 
   title: $title, 
@@ -73,7 +74,8 @@ export const ADD_ANIME = gql`
   rank: $rank, 
   genres: $genres, 
   studios: $studios, 
-  rating: $rating
+  rating: $rating,
+  isFavourite: $isFavourite
   ) {
     animeId
     image
@@ -93,31 +95,43 @@ export const ADD_ANIME = gql`
   }
 `;
 
-export const ADD_MANGA = gql`
-mutation addManga(
-  $mangaId: Int!
-  $title: String!
-  $title_japanese: String
-  $image: String
-  $chapters: Int
-  $description: String
-  $rank: Int
-  $author: String
-  $genres: [ID]
-) {
-  addManga(
-    mangaId: $mangaId
-    title: $title
-    title_japanese: $title_japanese
-    image: $image 
-    chapters: $chapters
-    description: $description
-    rank: $rank
-    author: $author
-    genres: $genres
-  )
-}
-
-
-
+export const HANDLE_MANGA = gql`
+    mutation handleManga(
+    $mangaId: Int!, 
+    $title: String!, 
+    $title_japanese: String, 
+    $image: String, 
+    $chapters: Int, 
+    $description: String, 
+    $rank: Int, 
+    $author: String, 
+    $genres: [String], 
+    $isFavourite: Boolean!
+    ) {
+  handleManga(
+  mangaId: $mangaId,  
+  title: $title, 
+  title_japanese: $title_japanese, 
+  image: $image,
+  chapters: $chapters,  
+  description: $description, 
+  rank: $rank, 
+  author: $author, 
+  genres: $genres,
+  isFavourite: $isFavourite
+  ) {
+    mangaId
+    title
+    title_japanese
+    image
+    chapters
+    description
+    rank
+    author
+    genres {
+      _id
+    }
+  }
+  }
 `;
+
