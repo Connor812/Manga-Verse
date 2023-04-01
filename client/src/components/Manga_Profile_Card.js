@@ -1,36 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/css/anime_card.css";
+import "../assets/css/profile.css";
 
 const Manga_Profile_Card = (props) => {
-  const anime = {
-    // animeId: props.animes.mal_id,
-    // title: props.animes.title,
-    // title_english: props.animes.title_english,
-    // title_japanese: props.animes.title_japanese,
-    // image: props.animes.images.jpg.large_image_url,
-    // episodes: props.animes.episodes,
-    // description: props.animes.synopsis,
-    // trailer: props.animes.trailer.url,
-    // duration: props.animes.duration,
-    // rating: props.animes.rating,
-    // rank: props.animes.rank,
-    // studios: props.animes.studios,
-    // genres: props.animes.genres
-  };
+  console.log(props)
+  const manga = {
+    mangaId: props.mangaId,
+    title: props.manga.title,
+    title_english: props.manga.title_english,
+    title_japanese: props.manga.title_japanese,
+    image: props.manga.image,
+    chapters: props.manga.chapters,
+    description: props.manga.synopsis,
+    rank: props.manga.rank,
+    author: props.manga.authors,
+    genres: props.manga.genres
+};
   return (
-    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper">
-      <div className="card-container">
-        <Link className="image-link" to={"/singleAnime"} state={anime}>
-          <img className="anime-img" src={anime.image} alt={anime.title} />
+    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+      <div className="profile-card-container">
+        <Link className="image-link" to={"/singleAnime"} state={manga}>
+          <img className="profile-anime-img" src={manga.image} alt={manga.title} />
         </Link>
-        <div className="anime-title-container">
-          <div className="anime-title">
-            {anime.title_english ? anime.title_english : anime.title}
+        <div className="profile-anime-title-container">
+          <div className="profile-anime-title">
+            {manga.title_english ? manga.title_english : manga.title}
           </div>
-          <div className="japanese-title">{anime.title_japanese}</div>
+          <div className="profile-japanese-title">{manga.title_japanese}</div>
 
-          <button className="anime-button delete">
+          <button className="profile-anime-delete-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
@@ -55,5 +53,6 @@ const Manga_Profile_Card = (props) => {
     </div>
   );
 };
+
 
 export default Manga_Profile_Card;
