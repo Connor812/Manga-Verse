@@ -48,7 +48,7 @@ const SingleAnime = () => {
         <p className="single-description">
           {anime.description
             ? anime.description
-            : "Sorry, we don't have description"}
+            : "Sorry, we don't have a description"}
         </p>
 
         <a href={anime.trailer} style={displayTrailer}>
