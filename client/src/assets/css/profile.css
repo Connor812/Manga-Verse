@@ -100,7 +100,7 @@
 .displayed-card-wrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .profile-card-container {
