@@ -1,5 +1,5 @@
  :root {
-  --text-color: #d1d5da;
+
 
   --red-background: url(../img/red-background.jpg);
   --red: #b1223f;
@@ -33,11 +33,19 @@
   --grey: #919ca0;
   --grey-hover: #747c80;
 
+  --black-background: url(../img/black-background.png);
+  --black: #252b33;
+  --black-hover: #333a46;
+
+  --white: rgb(224, 224, 224);
+  --text-black: rgb(26, 26, 26);
+
   --background-color: rgba(46, 46, 46, 0.542);
 
   --main-color: var(--orange);
   --main-color-hover: var(--orange-hover);
   --main-background: var(--orange-background);
+  --text-color: var(--black);
  }
  
  * {
@@ -78,6 +86,7 @@ body {
 }
 
 .universal-btn {
+  color: var(--text-color);
   margin: 10px;
   padding: 10px 20px 10px 20px;
   border-radius: 8px;
