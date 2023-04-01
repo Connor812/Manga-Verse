@@ -1,11 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { DELETE } from '../utils/mutations'
 import "../assets/css/profile.css";
 
 const Manga_Profile_Card = (props) => {
-  console.log(props)
+  const [Delete, { error }] = useMutation(DELETE);
+
   const manga = {
-    mangaId: props.mangaId,
+    _id: props.manga._id,
+    mangaId: props.manga.mangamangaId,
     title: props.manga.title,
     title_english: props.manga.title_english,
     title_japanese: props.manga.title_japanese,
@@ -16,8 +20,28 @@ const Manga_Profile_Card = (props) => {
     author: props.manga.authors,
     genres: props.manga.genres
 };
+const isFavourite = props.isFavourite;
+
+const handleDelete = async (mangaID) => {
+  try {
+    console.log(mangaID)
+    console.log(isFavourite);
+    const response = await Delete({
+      variables: {
+        AoM: 'manga',
+        _id: mangaID,
+        isFavourite: isFavourite
+      }
+    })
+    console.log(response);
+    document.getElementById(mangaID).remove();
+  } catch (err) {
+    console.log(err);
+  }
+}
+
   return (
-    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+    <div id={manga._id} className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
       <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={manga}>
           <img className="profile-anime-img" src={manga.image} alt={manga.title} />
@@ -28,7 +52,7 @@ const Manga_Profile_Card = (props) => {
           </div>
           <div className="profile-japanese-title">{manga.title_japanese}</div>
 
-          <button className="profile-anime-delete-button">
+          <button className="profile-anime-delete-button" onClick={(event) => { event.preventDefault(); handleDelete(manga._id);}}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
