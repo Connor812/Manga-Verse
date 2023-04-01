@@ -46,10 +46,11 @@
 }
 
 .SavedAnime{
+    display: ;
     float: left;
     text-align: center;
     width: 40%;
-    height: 70vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
     margin-left: 80px;
@@ -60,7 +61,7 @@
     float: right;
     text-align: center;
     width: 40%;
-    height: 70vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
     margin-right: 80px;
@@ -68,10 +69,11 @@
 }
 
 .SavedManga{
+    flex-direction: ;
     float: left;
     text-align: center;
     width: 40%;
-    height: 70vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
     margin-left: 80px;
@@ -82,7 +84,7 @@
     float: right;
     text-align: center;
     width: 40%;
-    height: 70vh;
+    height: auto;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
     margin-right: 80px;
@@ -93,6 +95,11 @@
 
 .profile-card-wrapper {
     height: auto;
+}
+
+.displayed-card-wrapper{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .profile-card-container {

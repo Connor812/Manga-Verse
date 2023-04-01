@@ -18,6 +18,7 @@ const AnimeProfile = () => {
         <div className="profile-wrapper">
           <div className="FavoritedAnime">
             <h3>Your Favorited Anime</h3>
+            <div className="displayed-card-wrapper">
 				{data.me.favAnime.map((anime) =>
 				{return <Anime_Profile_Card anime={anime}/>})}
             {/* <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
@@ -60,9 +61,11 @@ const AnimeProfile = () => {
                 </div>
               </div>
             </div> */}
+            </div>
           </div>
 		  <div className="SavedAnime">
             <h3>Your Watchlist Anime</h3>
+            <div className="displayed-card-wrapper">
 			{data.me.savedAnime.map((anime) =>
 				{return <Anime_Profile_Card anime={anime}/>})}
             {/* <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
@@ -105,6 +108,7 @@ const AnimeProfile = () => {
                 </div>
               </div>
             </div> */}
+            </div>
           </div>
         </div>
       )}
