@@ -1,10 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { HANDLE_ANIME } from '../utils/mutations';
+import Auth from '../utils/auth';
 import '../assets/css/anime_card.css';
 
 const Anime_Card = (props) => {
+    const userData = Auth.loggedIn() ? Auth.getProfile() : null;
+    const navigate = useNavigate();
     const [handleAnime, { error }] = useMutation(HANDLE_ANIME);
 
     const anime = {
@@ -24,6 +27,10 @@ const Anime_Card = (props) => {
     };
 
     const handlerAnime = async (anime, favourite) => {
+        if (!userData) {
+            console.log('works');
+            return navigate('/login');
+        }
         if (anime.title_english) {
             anime.title = anime.title_english;
             delete anime.title_english
@@ -63,7 +70,9 @@ const Anime_Card = (props) => {
         <div className='col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper'>
             <div className='card-container'>
                 <Link className='image-link' to={'/singleAnime'} state={anime}>
-                    <img className='anime-img' src={anime.image} alt={anime.title} />
+                    <div className="img-background">
+                        <img className='anime-img' src={anime.image} alt={anime.title} />
+                    </div>
                 </Link>
                 <div className='anime-title-container'>
                     <div className='anime-title'>{anime.title_english ? anime.title_english : anime.title}</div>
