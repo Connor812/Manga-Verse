@@ -68,29 +68,6 @@
     padding: 15px
 }
 
-.SavedManga{
-    flex-direction: ;
-    float: left;
-    text-align: center;
-    width: 40%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.838) ;
-    margin-top: 20px;
-    margin-left: 80px;
-    padding: 15px
-}
-
-.FavoritedManga{
-    float: right;
-    text-align: center;
-    width: 40%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.838) ;
-    margin-top: 20px;
-    margin-right: 80px;
-    padding: 15px
-}
-
 /* Anime Card Styling */
 
 .profile-card-wrapper {
