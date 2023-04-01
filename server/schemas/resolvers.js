@@ -180,23 +180,8 @@ const resolvers = {
       if (context.user) {
 
         let isFavourite = anime.isFavourite;
-
-        // Gets the username from context
-        const data = context.rawHeaders
-
-        const userdataIndex = data.findIndex((item, index) => {
-          return item === 'userdata' && typeof data[index + 1] === 'string';
-        });
-
-        if (userdataIndex !== -1) {
-          // Parse the JSON value of the "userdata" element
-          const userdata = JSON.parse(data[userdataIndex + 1]);
-
-          // Get the first name from the "data" object within the "userdata" value
-          var username = userdata.username;
-
-          console.log(username); // Output: "Username"
-        }
+        
+        const username = context.user.username;
 
         // AnimeDB ? use anime : Create new Anime
 
