@@ -11,7 +11,7 @@
 
 .footer-copyright{
     width: 300px;
-    color: white;
+    color: var(--text-color);
     margin:15px ;
 }
 

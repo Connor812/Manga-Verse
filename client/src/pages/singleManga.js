@@ -21,7 +21,7 @@ const SingleManga = () => {
   return (
     <div className="single-wrapper">
       <div className="single-content">
-        <h2 className="single-title">{manga.title}</h2>
+        <h2 className="single-title">{manga.title_english ? manga.title_english : manga.title}</h2>
         <h2 className="single-title_japanese">{manga.title_japanese}</h2>
 
         <img className="single-img" src={manga.image} alt={manga.title} />

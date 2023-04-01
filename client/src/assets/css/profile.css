@@ -1,6 +1,5 @@
 .profile-wrapper{
     color: white;
-    justify-content: space-around;
 }
 
 .ProfileHeader{
@@ -8,6 +7,8 @@
     padding: 50px;
     border-bottom-style: ridge;
     border-bottom-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
 }
 
 .HeaderText{
@@ -15,11 +16,33 @@
     float: left;
 }
 
-.profile-btn{
-    margin-right: 10px;
-    margin-top: -20px;
-    float: right;
-   
+.theme-center {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.theme-container {
+    background-color: var(--background-color);
+    margin: 10px;
+    padding: 10px;
+    width: 100%
+}
+
+.theme-img {
+    width: 250px;
+    margin: 10px;
+    border: 3px solid black;
+    transition: 0.3s;
+}
+
+.img-theme-btn {
+    background: none;
+    border: none;
+}
+
+.theme-img:hover {
+    border-color: var(--main-color);
 }
 
 .SavedAnime{

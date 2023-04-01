@@ -87,8 +87,8 @@ function SignupForm(props) {
               onChange={handleChange}
             />
           </div>
-          <div className="flex-row flex-end">
-            <button className="SignupBtn" type="submit">Submit</button>
+          <div className="submit-btn-container">
+            <button className="universal-btn" type="submit">Submit</button>
           </div>
         </form>
       </div>

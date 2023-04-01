@@ -11,7 +11,16 @@
     border: 0px;
     border-radius: 30px 30px 0px 0px;
     border: 3px solid var(--main-color);
-    
+    transition: 0.3s;
+}
+
+.img-background {
+    background-color: black;
+    border-radius: 30px 30px 0px 0px;
+}
+
+.anime-img:hover {
+    opacity: 70%;
 }
 
 .anime-title-container {
@@ -35,12 +44,13 @@ font-size: 20px;
     margin: 5px;
     background: none;
     border: none;
+    transition: 0.3s;
 }
 
 .favourite:hover {
-    fill: yellow;
+    fill: rgb(238, 214, 0);
 }
 
 .saved:hover {
-    fill: blue;
+    fill: rgb(255, 255, 255);
 }
