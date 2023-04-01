@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Anime_Card from '../components/Anime_Card';
 import Genres from '../components/Genres';
 import genresArray from '../assets/genres_info/genres.json';
@@ -41,7 +41,7 @@ function Anime() {
 			console.log(data)
 			setResultState(data);
 		} catch (err) {
-
+			console.log(err);
 		}
 	}
 
@@ -52,10 +52,21 @@ function Anime() {
 			<div className="search-wrapper">
 				<div className="search-form">
 					<form>
-						<input type="text" placeholder="Search Anime" onChange={handleChange} />
-						<button onClick={handleSubmit}>Search!</button>
+						<div>
+							<input type="text" placeholder="Search Anime" onChange={handleChange} />
+						</div>
+						<div className='search-btn-container'>
+							<button className="universal-btn" onClick={handleSubmit}>
+								Search
+							</button>
+							<button className="universal-btn" onClick={(event) => {
+								event.preventDefault(); 
+								setHideGenres(hideGenres ? false : true);
+								}}>
+								{hideGenres ? 'Genres' : 'Hide Genres'}
+							</button>
+						</div>
 					</form>
-					<button onClick={() => setHideGenres(hideGenres ? false : true)}>Genres</button>
 				</div>
 			</div>
 			<div className='genre-center'>
@@ -67,8 +78,8 @@ function Anime() {
 			<div className='row'>
 				{!result.data
 					? null
-					: result.data.map((anime) => {
-						return <Anime_Card animes={anime} />
+					: result.data.map((anime, index) => {
+						return <Anime_Card key={index} animes={anime} />
 					})}
 			</div>
 
