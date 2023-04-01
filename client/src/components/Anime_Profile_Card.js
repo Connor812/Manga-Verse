@@ -21,7 +21,7 @@ const Anime_Profile_Card = (props) => {
     rating: props.anime.rating,
     rank: props.anime.rank,
     studios: props.anime.studios,
-    genres: props.anime.genres
+    genres: props.anime.genres,
   };
   const isFavourite = props.isFavourite;
 
@@ -44,7 +44,11 @@ const Anime_Profile_Card = (props) => {
     <div id={anime._id} className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
       <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={anime}>
-          <img className="profile-anime-img" src={anime.image} alt={anime.title} />
+          <img
+            className="profile-anime-img"
+            src={anime.image}
+            alt={anime.title}
+          />
         </Link>
         <div className="profile-anime-title-container">
           <div className="profile-anime-title">

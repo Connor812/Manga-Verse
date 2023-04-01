@@ -19,12 +19,14 @@ const MangaProfile = () => {
 			 {data.me.favManga.map((manga, index) => {
               return <Manga_Profile_Card key={index} manga={manga} isFavourite={false} />;
             })}
+            </div>
           </div>
           <div className="FavoritedManga">
             <h3>Your Favorited Manga</h3>
             {data.me.savedManga.map((manga, index) => {
               return <Manga_Profile_Card key={index} manga={manga} isFavourite={true} />;
             })}
+            </div>
           </div>
         </div>
       )}
