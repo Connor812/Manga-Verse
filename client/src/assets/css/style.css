@@ -1,6 +1,8 @@
  :root {
   --orange: #f36a3e;
   --blue: rgb(0, 145, 255);
+  --black: #000000f5;
+  --main-border-color: var(--black);
   --main-color: var(--orange);
   --background-color: rgba(46, 46, 46, 0.542);
   --naruto: url(../img/naruto-background.jpeg);

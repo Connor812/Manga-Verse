@@ -1,36 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/css/anime_card.css";
+import "../assets/css/profile.css";
 
 const Anime_Profile_Card = (props) => {
+  console.log(props)
   const anime = {
-    // animeId: props.animes.mal_id,
-    // title: props.animes.title,
-    // title_english: props.animes.title_english,
-    // title_japanese: props.animes.title_japanese,
-    // image: props.animes.images.jpg.large_image_url,
-    // episodes: props.animes.episodes,
-    // description: props.animes.synopsis,
-    // trailer: props.animes.trailer.url,
-    // duration: props.animes.duration,
-    // rating: props.animes.rating,
-    // rank: props.animes.rank,
-    // studios: props.animes.studios,
-    // genres: props.animes.genres
+    animeId: props.anime.mal_id,
+    title: props.anime.title,
+    title_english: props.anime.title_english,
+    title_japanese: props.anime.title_japanese,
+    image: props.anime.image,
+    episodes: props.anime.episodes,
+    description: props.anime.synopsis,
+    trailer: props.anime.trailer,
+    duration: props.anime.duration,
+    rating: props.anime.rating,
+    rank: props.anime.rank,
+    studios: props.anime.studios,
+    genres: props.anime.genres
   };
   return (
-    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center card-wrapper">
-      <div className="card-container">
+    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+      <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={anime}>
-          <img className="anime-img" src={anime.image} alt={anime.title} />
+          <img className="profile-anime-img" src={anime.image} alt={anime.title} />
         </Link>
-        <div className="anime-title-container">
-          <div className="anime-title">
+        <div className="profile-anime-title-container">
+          <div className="profile-anime-title">
             {anime.title_english ? anime.title_english : anime.title}
           </div>
-          <div className="japanese-title">{anime.title_japanese}</div>
+          <div className="profile-japanese-title">{anime.title_japanese}</div>
 
-          <button className="anime-button delete">
+          <button className="profile-anime-delete-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"

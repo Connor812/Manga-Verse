@@ -22,7 +22,7 @@ const resolvers = {
         .populate('savedManga')
         .exec();
 
-        console.log("hello", userData)
+        
         return userData;
       }
 
