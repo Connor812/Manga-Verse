@@ -59,6 +59,8 @@ const Profile = () => {
 	const userData = Auth.loggedIn ? Auth.getProfile() : null;
 	console.log(userData);
 
+	// Handles Theme Change
+
 	const handleThemeChange = (color) => {
 		if (color === 'red') {
 			document.documentElement.style.setProperty('--main-color', 'var(--red)');

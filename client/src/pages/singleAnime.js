@@ -8,18 +8,6 @@ const SingleAnime = () => {
 
   console.log(anime);
 
-  function animeGenres() {
-    let str = "";
-    for (let i = 0; i < anime.genres.length; i++) {
-      const name = anime.genres[i].name;
-      const newName = name.charAt(0).toUpperCase() + name.slice(1);
-      str += newName
-      str += ", ";
-    }
-
-    return str;
-  }
-
   let displayTrailer = {};
   function animeTrailer() {
     if (anime.trailer) {
@@ -43,7 +31,9 @@ const SingleAnime = () => {
         <img className="single-img" src={anime.image} alt={anime.title} />
 
         <div className="single-info">
-          <p className="single-genres">Genres: {animeGenres()}</p>
+          <p className="single-genres">Genres: {anime.genres.map((genre, index) => {
+            return index + 1 < anime.genres.length ?  genre.name + ', ' : genre.name;
+          })}</p>
 
           <p className="single-rating">
             Rating: {anime.rating ? anime.rating : "-"}

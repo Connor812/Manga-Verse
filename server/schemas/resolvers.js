@@ -10,41 +10,76 @@ const resolvers = {
       if (context.user) {
         const user = context
         const userData = await User.findById(user.user._id)
-        .populate({
-          path: 'favAnime',
-          populate: {
-            path: 'genres',
-            model: 'Genres'
-          }
-        })
-        .populate('favManga')
-        .populate('savedAnime')
-        .populate('savedManga')
-        .exec();
+          .populate({
+            path: 'favAnime',
+            populate: {
+              path: 'genres',
+              model: 'Genres',
+            },
+          })
+          .populate({
+            path: 'savedAnime',
+            populate: {
+              path: 'genres',
+              model: 'Genres'
+            }
+          })
+          .populate({
+            path: 'favManga',
+            populate: {
+              path: 'genres',
+              model: 'Genres'
+            }
+          })
+          .populate({
+            path: 'savedManga',
+            populate: {
+              path: 'genres',
+              model: 'Genres'
+            }
+          })
+          .exec();
 
-        
+
         return userData;
       }
 
       throw new AuthenticationError('Not logged in');
     },
-
     user: async (parent, arg) => {
-        const userData = await User.findById(arg._id)
+      const userData = await User.findById(arg._id)
         .populate({
           path: 'favAnime',
+          populate: {
+            path: 'genres',
+            model: 'Genres',
+          },
+        })
+        .populate({
+          path: 'savedAnime',
           populate: {
             path: 'genres',
             model: 'Genres'
           }
         })
-        .populate('favManga')
-        .populate('savedAnime')
-        .populate('savedManga')
+        .populate({
+          path: 'favManga',
+          populate: {
+            path: 'genres',
+            model: 'Genres'
+          }
+        })
+        .populate({
+          path: 'savedManga',
+          populate: {
+            path: 'genres',
+            model: 'Genres'
+          }
+        })
         .exec();
 
-        return userData;
-      },
+      return userData;
+    },
 
     anime: async (parent) => {
       try {
@@ -144,82 +179,82 @@ const resolvers = {
     handleAnime: async (parent, anime, context) => {
       if (context.user) {
 
-      let isFavourite = anime.isFavourite;
+        let isFavourite = anime.isFavourite;
 
-      // Gets the username from context
-      const data = context.rawHeaders
+        // Gets the username from context
+        const data = context.rawHeaders
 
-      const userdataIndex = data.findIndex((item, index) => {
-        return item === 'userdata' && typeof data[index + 1] === 'string';
-      });
-      
-      if (userdataIndex !== -1) {
-        // Parse the JSON value of the "userdata" element
-        const userdata = JSON.parse(data[userdataIndex + 1]);
-      
-        // Get the first name from the "data" object within the "userdata" value
-        var username = userdata.username;
-      
-        console.log(username); // Output: "Username"
-      }
+        const userdataIndex = data.findIndex((item, index) => {
+          return item === 'userdata' && typeof data[index + 1] === 'string';
+        });
 
-      // AnimeDB ? use anime : Create new Anime
+        if (userdataIndex !== -1) {
+          // Parse the JSON value of the "userdata" element
+          const userdata = JSON.parse(data[userdataIndex + 1]);
 
-      const animeDB = await Anime.findOne({ animeId: anime.animeId});
-      console.log(username);
-      if (animeDB) {
-        console.log('existing anime')
-        try {
-          const updatedFavAnime = await User.findOneAndUpdate(
-            { username: username },
-            isFavourite 
-            ? { $addToSet: { favAnime: animeDB._id } } 
-            : { $addToSet: { savedAnime: animeDB._id } },
-            { new: true }
-          )
-          
-          return animeDB;
-        } catch (error) {
-          return error;
+          // Get the first name from the "data" object within the "userdata" value
+          var username = userdata.username;
+
+          console.log(username); // Output: "Username"
         }
-      } else {
-      console.log('new Anime')
-        let genresId = [];
 
-        if (anime.genres.length > 0) {
-        genresId = await Promise.all(anime.genres.map(async (genreName) => {
+        // AnimeDB ? use anime : Create new Anime
+
+        const animeDB = await Anime.findOne({ animeId: anime.animeId });
+        console.log(username);
+        if (animeDB) {
+          console.log('existing anime')
           try {
-            const genre = await Genres.findOne({ name: genreName });
-            return genre._id;
-          } catch (err) {
-            console.log('error');
-          }
-        }));
-
-        anime.genres = genresId;
-      } else {
-        anime.genres = []
-      }
-
-        try {
-          delete anime.isFavourite;
-          const newAnime = await Anime.create(anime);
-          try {
-            await User.findOneAndUpdate(
+            const updatedFavAnime = await User.findOneAndUpdate(
               { username: username },
-              isFavourite 
-              ? { $addToSet: { favAnime: newAnime._id } } 
-              : { $addToSet: { savedAnime: newAnime._id } },
+              isFavourite
+                ? { $addToSet: { favAnime: animeDB._id } }
+                : { $addToSet: { savedAnime: animeDB._id } },
               { new: true }
             )
-            return newAnime;
+
+            return animeDB;
           } catch (error) {
             return error;
           }
-        } catch (error) {
-          return error
+        } else {
+          console.log('new Anime')
+          let genresId = [];
+
+          if (anime.genres.length > 0) {
+            genresId = await Promise.all(anime.genres.map(async (genreName) => {
+              try {
+                const genre = await Genres.findOne({ name: genreName });
+                return genre._id;
+              } catch (err) {
+                console.log('error');
+              }
+            }));
+
+            anime.genres = genresId;
+          } else {
+            anime.genres = []
+          }
+
+          try {
+            delete anime.isFavourite;
+            const newAnime = await Anime.create(anime);
+            try {
+              await User.findOneAndUpdate(
+                { username: username },
+                isFavourite
+                  ? { $addToSet: { favAnime: newAnime._id } }
+                  : { $addToSet: { savedAnime: newAnime._id } },
+                { new: true }
+              )
+              return newAnime;
+            } catch (error) {
+              return error;
+            }
+          } catch (error) {
+            return error
+          }
         }
-      }
       }
 
       throw new AuthenticationError('Not logged in');
@@ -229,88 +264,88 @@ const resolvers = {
     handleManga: async (parent, manga, context) => {
       if (context.user) {
 
-      let isFavourite = manga.isFavourite;
+        let isFavourite = manga.isFavourite;
 
-      // Gets the username from context
-      const data = context.rawHeaders
+        // Gets the username from context
+        const data = context.rawHeaders
 
-      const userdataIndex = data.findIndex((item, index) => {
-        return item === 'userdata' && typeof data[index + 1] === 'string';
-      });
-      
-      if (userdataIndex !== -1) {
-        // Parse the JSON value of the "userdata" element
-        const userdata = JSON.parse(data[userdataIndex + 1]);
-      
-        // Get the first name from the "data" object within the "userdata" value
-        var username = userdata.username;
-      
-        console.log(username); // Output: "Username"
-      }
+        const userdataIndex = data.findIndex((item, index) => {
+          return item === 'userdata' && typeof data[index + 1] === 'string';
+        });
 
-      // MangaDB ? use anime : Create new Manga
+        if (userdataIndex !== -1) {
+          // Parse the JSON value of the "userdata" element
+          const userdata = JSON.parse(data[userdataIndex + 1]);
 
-      const mangaDB = await Manga.findOne({ mangaId: manga.mangaId});
-      console.log(username);
-      if (mangaDB) {
-        console.log('existing manga')
-        try {
-          const updatedFavManga = await User.findOneAndUpdate(
-            { username: username },
-            isFavourite 
-            ? { $addToSet: { favManga: mangaDB._id } } 
-            : { $addToSet: { savedManga: mangaDB._id } },
-            { new: true }
-          )
-          
-          return mangaDB;
-        } catch (error) {
-          return error;
+          // Get the first name from the "data" object within the "userdata" value
+          var username = userdata.username;
+
+          console.log(username); // Output: "Username"
         }
-      } else {
-      console.log('new Manga')
-        let genresId = [];
 
-        if (manga.genres.length > 0) {
-        genresId = await Promise.all(manga.genres.map(async (genreName) => {
+        // MangaDB ? use anime : Create new Manga
+
+        const mangaDB = await Manga.findOne({ mangaId: manga.mangaId });
+        console.log(username);
+        if (mangaDB) {
+          console.log('existing manga')
           try {
-            const genre = await Genres.findOne({ name: genreName });
-            return genre._id;
-          } catch (err) {
-            console.log('error');
-          }
-        }));
-
-        manga.genres = genresId;
-      } else {
-        manga.genres = []
-      }
-
-        try {
-          delete manga.isFavourite;
-          const newManga = await Manga.create(manga);
-          try {
-            await User.findOneAndUpdate(
+            const updatedFavManga = await User.findOneAndUpdate(
               { username: username },
-              isFavourite 
-              ? { $addToSet: { favManga: newManga._id } } 
-              : { $addToSet: { savedManga: newManga._id } },
+              isFavourite
+                ? { $addToSet: { favManga: mangaDB._id } }
+                : { $addToSet: { savedManga: mangaDB._id } },
               { new: true }
             )
-            return newManga;
+
+            return mangaDB;
           } catch (error) {
             return error;
           }
-        } catch (error) {
-          return error
+        } else {
+          console.log('new Manga')
+          let genresId = [];
+
+          if (manga.genres.length > 0) {
+            genresId = await Promise.all(manga.genres.map(async (genreName) => {
+              try {
+                const genre = await Genres.findOne({ name: genreName });
+                return genre._id;
+              } catch (err) {
+                console.log('error');
+              }
+            }));
+
+            manga.genres = genresId;
+          } else {
+            manga.genres = []
+          }
+
+          try {
+            delete manga.isFavourite;
+            const newManga = await Manga.create(manga);
+            try {
+              await User.findOneAndUpdate(
+                { username: username },
+                isFavourite
+                  ? { $addToSet: { favManga: newManga._id } }
+                  : { $addToSet: { savedManga: newManga._id } },
+                { new: true }
+              )
+              return newManga;
+            } catch (error) {
+              return error;
+            }
+          } catch (error) {
+            return error
+          }
         }
-      }
       }
 
       throw new AuthenticationError('Not logged in');
 
     },
-    
+
     addGenre: async (parent, genre) => {
       try {
         const newGenre = await Genres.create(genre);
@@ -319,53 +354,50 @@ const resolvers = {
         return error;
       }
     },
-    updateFavAnime: async (parent, args) => {
-      try {
-        const updatedFavAnime = await User.findOneAndUpdate(
-          { username: args.username },
-          { $addToSet: { favAnime: args.favAnime } },
-          { new: true }
-        )
-        return updatedFavAnime;
-      } catch (error) {
-        return error;
+    Delete: async (parent, args, context) => {
+      if (context.user) {
+        const AoM = args.AoM;
+        const isFavourite = args.isFavourite;
+        const username = context.user.username;
+        const _id = args._id;
+        console.log(AoM)
+        console.log(isFavourite)
+        console.log(username)
+        console.log(_id)
+
+        if (AoM === 'anime') {
+          try {
+            const updatedUser = await User.findOneAndUpdate(
+              { username: username },
+              isFavourite
+                ? { $pull: { favAnime: _id } }
+                : { $pull: { savedAnime: _id } },
+              { new: true }
+            )
+            console.log(updatedUser);
+            return updatedUser;
+          } catch (err) {
+            return err
+          }
+        } else if (AoM === 'manga') {
+          try {
+            const updatedUser = await User.findOneAndUpdate(
+              { username: username },
+              isFavourite
+                ? { $pull: { favManga: _id } }
+                : { $pull: { savedManga: _id } },
+              { new: true }
+            )
+            console.log(updatedUser)
+            return updatedUser;
+          } catch (err) {
+            return err;
+          }
+        }
+      } else {
+        throw new AuthenticationError('Not logged in');
       }
-    },
-    updateSavedAnime: async (parent, args) => {
-      try {
-        const updatedSavedAnime = await User.findOneAndUpdate(
-          { username: args.username },
-          { $addToSet: { savedAnime: args.savedAnime } },
-          { new: true }
-        )
-        return updatedSavedAnime;
-      } catch (error) {
-        return error;
-      }
-    },
-    updateFavManga: async (parent, args) => {
-      try {
-        const updatedFavManga = await User.findOneAndUpdate(
-          { username: args.username },
-          { $addToSet: { favManga: args.favManga } },
-          { new: true }
-        )
-        return updatedFavManga;
-      } catch (error) {
-        return error
-      }
-    },
-    updateSavedManga: async (parent, args) => {
-      try {
-        const updateSavedManga = await User.findOneAndUpdate(
-          { username: args.username },
-          { $addToSet: { savedManga: args.savedManga } },
-          { new: true }
-        )
-        return updateSavedManga;
-      } catch (error) {
-        return error
-      }
+
     }
   }
 }
