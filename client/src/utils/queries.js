@@ -27,14 +27,11 @@ query me {
     _id
     username
     favAnime {
+      _id
       animeId
       description
       duration
       episodes
-      genres {
-        _id
-        name
-      }
       image
       rank
       rating
@@ -42,8 +39,31 @@ query me {
       title
       title_japanese
       trailer
+      genres {
+        _id
+        name
+      }
+    }
+    savedAnime {
+      _id
+      animeId
+      title
+      title_japanese
+      image
+      episodes
+      description
+      trailer
+      duration
+      rating
+      rank
+      studios
+      genres {
+        _id
+        name
+      }
     }
     favManga {
+      _id
       mangaId
       title
       title_japanese
@@ -57,24 +77,8 @@ query me {
         name
       }
     }
-    savedAnime {
-      animeId
-      title
-      title_japanese
-      image
-      episodes
-      description
-      trailer
-      duration
-      rating
-      rank
-      studios
-      genres {
-        _id
-        name
-      }
-    }
     savedManga {
+      _id
       mangaId
       title
       title_japanese

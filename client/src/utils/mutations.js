@@ -135,3 +135,33 @@ export const HANDLE_MANGA = gql`
   }
 `;
 
+export const DELETE = gql`
+mutation Delete(
+  $AoM: String!,
+  $isFavourite: Boolean!,
+  $_id: ID!
+) {
+  Delete(
+    AoM: $AoM,
+    isFavourite: $isFavourite,
+    _id: $_id
+  ) {
+    username
+    firstName
+    lastName
+    email
+    favAnime {
+      _id
+    }
+    savedAnime {
+    _id
+    }
+    favManga {
+      _id
+    }
+    savedManga {
+      _id
+    }
+  }
+}
+`;

@@ -31,7 +31,9 @@ const SingleAnime = () => {
         <img className="single-img" src={anime.image} alt={anime.title} />
 
         <div className="single-info">
-          <p className="single-genres">Genres:</p>
+          <p className="single-genres">Genres: {anime.genres.map((genre, index) => {
+            return index + 1 < anime.genres.length ?  genre.name + ', ' : genre.name;
+          })}</p>
 
           <p className="single-rating">
             Rating: {anime.rating ? anime.rating : "-"}

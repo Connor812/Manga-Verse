@@ -8,16 +8,6 @@ const SingleManga = () => {
 
   console.log(manga);
 
-  function fromArr(arr) {
-    let str = "";
-    for (let i = 0; i < arr.length; i++) {
-      str += arr[i].name;
-      str += ", ";
-    }
-
-    return str.slice(0, -2);;
-  }
-
   return (
     <div className="single-wrapper">
       <div className="single-content">
@@ -27,10 +17,12 @@ const SingleManga = () => {
         <img className="single-img" src={manga.image} alt={manga.title} />
 
         <div className="single-info">
-          <p className="single-genres">Genres: {manga.genres.length > 0 ? fromArr(manga.genres) : "-"}</p>
+          <p className="single-genres">Genres: {manga.genres.map((genre, index) => {
+            return index + 1 < manga.genres.length ? genre.name + ', ' : genre.name;
+          })}</p>
 
           <p className="single-author">
-            Author: <span>{manga.author.length > 0 ? fromArr(manga.author) : "-"}</span>
+            Author: <span>{manga.author[0].name ? manga.author[0].name  : "-"}</span>
           </p>
 
           <p className="single-chapters">

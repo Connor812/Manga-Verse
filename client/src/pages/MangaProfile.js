@@ -13,24 +13,22 @@ const MangaProfile = () => {
       {loading ? (
         <h1>loading</h1>
       ) : (
-        <div>
+        <div className="profile-wrapper">
           <div className="SavedManga">
             <h3>Your To-Read List</h3>
-            <div className="displayed-card-wrapper">
-			 {data.me.favManga.map((manga) => {
-              return <Manga_Profile_Card manga={manga} />;
+            {data.me.favManga.map((manga, index) => {
+              return <Manga_Profile_Card key={index} manga={manga} isFavourite={false} />;
             })}
-            </div>
           </div>
+
           <div className="FavoritedManga">
             <h3>Your Favorited Manga</h3>
-            <div className="displayed-card-wrapper">
-            {data.me.savedManga.map((manga) => {
-              return <Manga_Profile_Card manga={manga} />;
+            {data.me.savedManga.map((manga, index) => {
+              return <Manga_Profile_Card key={index} manga={manga} isFavourite={true} />;
             })}
-            </div>
           </div>
         </div>
+
       )}
     </>
   );

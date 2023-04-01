@@ -8,10 +8,24 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     email: String
-    favAnime: [Anime]
-    savedAnime: [Anime]
-    favManga: [Manga]
-    savedManga: [Manga]
+    favAnime: [GetAnime]
+    savedAnime: [GetAnime]
+    favManga: [GetManga]
+    savedManga: [GetManga]
+  }
+
+  type DeleteUser {
+    AoM: String
+    isFavourite: Boolean
+    _id: ID
+    username: String
+    firstName: String
+    lastName: String
+    email: String
+    favAnime: [GetAnime]
+    savedAnime: [GetAnime]
+    favManga: [GetManga]
+    savedManga: [GetManga]
   }
 
   type Anime {
@@ -29,7 +43,36 @@ const typeDefs = gql`
     genres: [Genres]
   }
 
+  type GetAnime {
+    _id: ID
+    animeId: Int
+    title: String
+    title_japanese: String
+    image: String
+    episodes: Int
+    description: String
+    trailer: String
+    duration: String
+    rating: String
+    rank: Int
+    studios: String
+    genres: [Genres]
+  }
+
   type Manga {
+    mangaId: Int
+    title: String
+    title_japanese: String
+    image: String
+    chapters: Int
+    description: String
+    rank: Int
+    author: String
+    genres: [Genres]
+  }
+
+  type GetManga {
+    _id: ID
     mangaId: Int
     title: String
     title_japanese: String
@@ -64,7 +107,7 @@ const typeDefs = gql`
     updateUser(username: String!, firstName: String, lastName: String, email: String, password: String): User
     login(email: String!, password: String!): Auth
 
-    # Add Anime
+    # Handle Anime
     handleAnime(
     animeId: Int!,
     title: String!, 
@@ -81,7 +124,7 @@ const typeDefs = gql`
     isFavourite: Boolean!
     ): Anime
 
-    # Add Manga
+    # Handle Manga
     handleManga(
       mangaId: Int!, 
       title: String!, 
@@ -96,10 +139,7 @@ const typeDefs = gql`
       ): Manga
 
     addGenre(name: String!): Genres
-    updateFavAnime(username: String!, favAnime: ID!): User
-    updateSavedAnime(username: String!, savedAnime: ID!): User
-    updateFavManga(username: String!, favManga: ID!): User
-    updateSavedManga(username: String!, savedManga: ID!): User
+    Delete(AoM: String!, isFavourite: Boolean!, _id: ID!): DeleteUser
   }
 `;
 

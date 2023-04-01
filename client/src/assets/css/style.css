@@ -1,6 +1,5 @@
  :root {
 
-
   --red-background: url(../img/red-background.jpg);
   --red: #b1223f;
   --red-hover: #881b31;
@@ -46,6 +45,7 @@
   --main-color-hover: var(--orange-hover);
   --main-background: var(--orange-background);
   --text-color: var(--black);
+  --genre-text-color: rgb(224, 224, 224);
  }
  
  * {

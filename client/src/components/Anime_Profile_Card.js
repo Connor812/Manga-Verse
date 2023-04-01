@@ -1,10 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
+import { DELETE } from '../utils/mutations'
 import "../assets/css/profile.css";
 
 const Anime_Profile_Card = (props) => {
-  console.log(props);
+  const [Delete, { error }] = useMutation(DELETE);
+
   const anime = {
+    _id: props.anime._id,
     animeId: props.anime.mal_id,
     title: props.anime.title,
     title_english: props.anime.title_english,
@@ -19,8 +23,25 @@ const Anime_Profile_Card = (props) => {
     studios: props.anime.studios,
     genres: props.anime.genres,
   };
+  const isFavourite = props.isFavourite;
+
+  const handleDelete = async (animeID) => {
+    try {
+      await Delete({
+        variables: {
+          AoM: 'anime',
+          _id: animeID,
+          isFavourite: isFavourite
+        }
+      })
+      document.getElementById(animeID).remove();
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
-    <div className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+    <div id={anime._id} className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
       <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={anime}>
           <img
@@ -35,7 +56,7 @@ const Anime_Profile_Card = (props) => {
           </div>
           <div className="profile-japanese-title">{anime.title_japanese}</div>
 
-          <button className="profile-anime-delete-button">
+          <button className="profile-anime-delete-button" onClick={(event) => { event.preventDefault(); handleDelete(anime._id); }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
