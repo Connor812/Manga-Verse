@@ -15,16 +15,16 @@ const MangaProfile = () => {
       ) : (
         <div className="profile-wrapper">
           <div className="SavedManga">
-            <h3>Your To-Read List</h3>
+            <h3>Your Favourites Mangas</h3>
             {data.me.favManga.map((manga, index) => {
-              return <Manga_Profile_Card key={index} manga={manga} isFavourite={false} />;
+              return <Manga_Profile_Card key={index} manga={manga} isFavourite={true} />;
             })}
           </div>
 
           <div className="FavoritedManga">
-            <h3>Your Favorited Manga</h3>
+            <h3>Your Saved Manga</h3>
             {data.me.savedManga.map((manga, index) => {
-              return <Manga_Profile_Card key={index} manga={manga} isFavourite={true} />;
+              return <Manga_Profile_Card key={index} manga={manga} isFavourite={false} />;
             })}
           </div>
         </div>
