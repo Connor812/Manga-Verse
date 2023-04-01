@@ -1,11 +1,43 @@
  :root {
+  --text-color: #d1d5da;
+
+  --red-background: url(../img/red-background.jpg);
+  --red: #b1223f;
+  --red-hover: #881b31;
+
+  --orange-background: url(../img/orange-background.jpeg);
   --orange: #f36a3e;
-  --blue: rgb(0, 145, 255);
-  --main-color: var(--orange);
+  --orange-hover: #cb5832;
+
+  --yellow-background: url(../img/yellow-background.png);
+  --yellow: #edd587;
+  --yellow-hover: #c4b070;
+
+  --blue-background: url(../img/blue-background.jpg);
+  --blue: #14418d;
+  --blue-hover: #0f2f66;
+
+  --green-background: url(../img/green-background.jpg);
+  --green: #159382;
+  --green-hover: #0f6e61;
+
+  --purple-background: url(../img/purple-bacgkround.jpg);
+  --purple: #5b2059;
+  --purple-hover: #431841;
+
+  --pink-background: url(../img/pink-background.jpg);
+  --pink: #f6bbc2;
+  --pink-hover: #daa6ac;
+
+  --grey-background: url(../img/grey-background.jpg);
+  --grey: #919ca0;
+  --grey-hover: #747c80;
+
   --background-color: rgba(46, 46, 46, 0.542);
-  --naruto: url(../img/naruto-background.jpeg);
-  --your-name: url(../img/your-name-background.webp);
-  --main-background: var(--naruto);
+
+  --main-color: var(--orange);
+  --main-color-hover: var(--orange-hover);
+  --main-background: var(--orange-background);
  }
  
  * {
@@ -37,7 +69,7 @@ body {
   justify-content: center;
 }
 
-.home-anime-maga {
+.home-anime-manga {
   width: 250px;
   height: 60px;
   background-color: var(--background-color);
@@ -45,11 +77,17 @@ body {
   text-align: center;
 }
 
-.home-btn {
+.universal-btn {
   margin: 10px;
+  padding: 10px 20px 10px 20px;
+  border-radius: 8px;
+  background-color: var(--main-color);
+  border: none;
 }
 
-/* navbar */
+.universal-btn:hover {
+  background-color: var(--main-color-hover);
+}
 
 .header-logo-link {
   margin-left: 25px;
