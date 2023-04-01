@@ -1,5 +1,6 @@
 .profile-wrapper{
     color: white;
+    justify-content: space-around;
 }
 
 .ProfileHeader{
@@ -28,7 +29,8 @@
     height: 70vh;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
-    margin-left: 80px
+    margin-left: 80px;
+    padding: 15px
 }
 
 .FavoritedAnime{
@@ -38,7 +40,8 @@
     height: 70vh;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
-    margin-right: 80px
+    margin-right: 80px;
+    padding: 15px
 }
 
 .SavedManga{
@@ -48,7 +51,8 @@
     height: 70vh;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
-    margin-left: 80px
+    margin-left: 80px;
+    padding: 15px
 }
 
 .FavoritedManga{
@@ -58,5 +62,51 @@
     height: 70vh;
     background-color: rgba(0, 0, 0, 0.838) ;
     margin-top: 20px;
-    margin-right: 80px
+    margin-right: 80px;
+    padding: 15px
+}
+
+/* Anime Card Styling */
+
+.profile-card-wrapper {
+    height: auto;
+}
+
+.profile-card-container {
+    margin: 10px;
+}
+
+.profile-anime-img {
+    width: 150px;
+    border: 0px;
+    border-radius: 30px 30px 0px 0px;
+    border: 3px solid var(--main-color);
+    
+}
+
+.profile-anime-title-container {
+    width: 150px;
+    background-color: var(--main-color);
+    border: 3px solid var(--main-color);
+    border-radius: 0px  0px  30px 30px;
+}
+
+.profile-anime-title {
+padding-top: 2px;
+font-size: 20px;
+}
+
+.profile-japanese-title {
+    margin-left: 5px;
+    font-size: 15px;
+}
+
+.profile-anime-delete-button {
+    margin: 5px;
+    background: none;
+    border: none;
+}
+
+.profile-anime-delete-button:hover {
+    fill: blue;
 }
