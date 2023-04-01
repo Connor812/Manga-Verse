@@ -1,16 +1,8 @@
 .SignupContainer{
     display: flex;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.827);
+    color: var(--text-color);
   }
-  
-/* .SignupContainer h2{
-    margin: 20px;
-  }
-  
-.SignupForm{
-  margin: 5px;
-  } */
 
 label{
     margin: 5px;
@@ -24,11 +16,10 @@ label{
   justify-content: center;
   align-items: center;
   border-radius: 15px;
-
   background-color: var(--background-color);
   width: 375px;
   min-height: 320px;
-
+  padding: 10px
 }
 
 .form-wrapper input {
@@ -36,9 +27,7 @@ label{
   padding-left: 5px;
 }
 
-.form-wrapper button {
-  height: 35px;
-  width: 65px;
-  border-radius: 5px;
-  float: right;
+.submit-btn-container {
+  display: flex;
+  justify-content: end;
 }
