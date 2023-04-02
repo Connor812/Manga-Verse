@@ -2,8 +2,9 @@
   padding-top: 15px;
   margin: 0 auto;
   margin-top: 15px;
-  width: 80%;
-  min-height: 700px;
+  width: 95%;
+  min-height: 400px;
+  height: auto;
   background-color: var(--background-color);
   border-radius: 15px;
   position: relative;
