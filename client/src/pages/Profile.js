@@ -64,46 +64,55 @@ const Profile = () => {
 
 	const handleThemeChange = (color) => {
 		if (color === 'red') {
+			localStorage.setItem('theme', 'red');
 			document.documentElement.style.setProperty('--main-color', 'var(--red)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--red-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--red-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else if (color === 'orange') {
+			localStorage.setItem('theme', 'orange');
 			document.documentElement.style.setProperty('--main-color', 'var(--orange)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--orange-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--orange-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else if (color === 'yellow') {
+			localStorage.setItem('theme', 'yellow');
 			document.documentElement.style.setProperty('--main-color', 'var(--yellow)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--yellow-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--yellow-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else if (color === 'blue') {
+			localStorage.setItem('theme', 'blue');
 			document.documentElement.style.setProperty('--main-color', 'var(--blue)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--blue-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--blue-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--white)');
 		} else if (color === 'green') {
+			localStorage.setItem('theme', 'green');
 			document.documentElement.style.setProperty('--main-color', 'var(--green)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--green-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--green-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else if (color === 'purple') {
+			localStorage.setItem('theme', 'purple');
 			document.documentElement.style.setProperty('--main-color', 'var(--purple)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--purple-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--purple-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--white)');
 		} else if (color === 'pink') {
+			localStorage.setItem('theme', 'pink');
 			document.documentElement.style.setProperty('--main-color', 'var(--pink)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--pink-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--pink-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else if (color === 'grey') {
+			localStorage.setItem('theme', 'grey');
 			document.documentElement.style.setProperty('--main-color', 'var(--grey)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--grey-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--grey-background)');
 			document.documentElement.style.setProperty('--text-color', 'var(--black)');
 		} else {
+			localStorage.setItem('theme', 'black');
 			document.documentElement.style.setProperty('--main-color', 'var(--black)');
 			document.documentElement.style.setProperty('--main-color-hover', 'var(--black-hover)');
 			document.documentElement.style.setProperty('--main-background', 'var(--black-background)');

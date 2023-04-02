@@ -84,6 +84,8 @@
   text-align: center;
 }
 
+/* Universal button used on the age */
+
 .universal-btn {
   color: var(--text-color);
   margin: 10px;
@@ -91,10 +93,12 @@
   border-radius: 8px;
   background-color: var(--main-color);
   border: none;
+  transition: 0.3s;
 }
 
 .universal-btn:hover {
   background-color: var(--main-color-hover);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .header-logo-link {
@@ -103,11 +107,13 @@
 
 .cherry-tree {
   margin-left: 10px;
+  fill: var(--main-color);
 }
 
 .cherry-tree .pink-leaf {
   transition: 0.3s;
 }
+
 
 .cherry-tree .trunk {
   transition: 0.3s;
