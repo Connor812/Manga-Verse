@@ -1,20 +1,15 @@
-.profile-wrapper{
-    color: white;
-}
-
-.ProfileHeader{
-    background-color: rgba(0, 0, 0, 0.838);
-    padding: 50px;
-    border-bottom-style: ridge;
-    border-bottom-color: whitesmoke;
+.profile-header {
+    background-color: var(--background-color);
+    color: var(--white);
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    padding: 20px;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
 }
 
-.HeaderText{
-    margin-top: -20px;
-    float: left;
-}
+/* Theme Container Styles */
 
 .theme-center {
     display: flex;
@@ -26,7 +21,8 @@
     background-color: var(--background-color);
     margin: 10px;
     padding: 10px;
-    width: 100%
+    width: 100%;
+    border-radius: 20px;
 }
 
 .theme-img {
@@ -43,78 +39,37 @@
 
 .theme-img:hover {
     border-color: var(--main-color);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-.SavedAnime{
-    display: ;
-    float: left;
-    text-align: center;
-    width: 40%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.838) ;
-    margin-top: 20px;
-    margin-left: 80px;
-    padding: 15px
+@media screen and (max-width: 450px) {
+    .theme-btn-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
-.FavoritedAnime{
-    float: right;
-    text-align: center;
-    width: 40%;
-    height: auto;
-    background-color: rgba(0, 0, 0, 0.838) ;
-    margin-top: 20px;
-    margin-right: 80px;
-    padding: 15px
+/* Favourite and Saved Section Style */
+
+.favourite-container {
+background-color: var(--background-color);
+margin: 20px;
+padding: 10px;
+border-radius: 20px;
 }
 
-/* Anime Card Styling */
-
-.profile-card-wrapper {
-    height: auto;
-}
-
-.displayed-card-wrapper{
+.center-title {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    color: var(--white);
+    font-size: 40px;
 }
 
-.profile-card-container {
-    margin: 10px;
-}
-
-.profile-anime-img {
-    width: 150px;
-    border: 0px;
-    border-radius: 30px 30px 0px 0px;
-    border: 3px solid var(--main-color);
-    
-}
-
-.profile-anime-title-container {
-    width: 150px;
-    background-color: var(--main-color);
-    border: 3px solid var(--main-color);
-    border-radius: 0px  0px  30px 30px;
-}
-
-.profile-anime-title {
-padding-top: 2px;
-font-size: 20px;
-}
-
-.profile-japanese-title {
-    margin-left: 5px;
-    font-size: 15px;
-}
-
-.profile-anime-delete-button {
-    margin: 5px;
-    background: none;
-    border: none;
-}
-
-.profile-anime-delete-button:hover {
-    fill: blue;
+.saved-container {
+    background-color: var(--background-color);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 20px;
 }

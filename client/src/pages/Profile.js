@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import Auth from '../utils/auth';
 import '../assets/css/profile.css';
+import '../assets/css/profile_card.css'
 import MangaProfile from '../pages/MangaProfile';
 import AnimeProfile from '../pages/AnimeProfile';
 
 import red_background from '../assets/img/red-background.jpg';
 import orange_background from '../assets/img/orange-background.jpeg';
 import yellow_background from '../assets/img/yellow-background.png';
-import green_background from '../assets/img/green-background.jpg';
+import green_background from '../assets/img/green-background.png';
 import blue_background from '../assets/img/blue-background.jpg';
 import purple_background from '../assets/img/purple-bacgkround.jpg';
 import pink_background from '../assets/img/pink-background.jpg';
@@ -113,11 +114,11 @@ const Profile = () => {
 	return (
 		<div className='profile-wrapper'>
 			<div>
-				<div className='ProfileHeader'>
+				<div className='profile-header'>
 					<div>
 						<h1 className='HeaderText'>{userData.username}'s Profile</h1>
 					</div>
-					<div>
+					<div className="theme-btn-wrapper">
 						<button className="universal-btn" onClick={() => setCurrentPage(true)}>Your Anime</button>
 						<button className="universal-btn" onClick={() => setCurrentPage(false)}>Your Manga</button>
 						<button className="universal-btn" onClick={(event) => {

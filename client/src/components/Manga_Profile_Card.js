@@ -41,7 +41,7 @@ const handleDelete = async (mangaID) => {
 }
 
   return (
-    <div id={manga._id} className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+    <div id={manga._id} className="col-xxl-1 col-lg-2 col-md-4 col-sm-6 d-flex justify-content-center profile-card-wrappe">
       <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={manga}>
           <img className="profile-anime-img" src={manga.image} alt={manga.title} />

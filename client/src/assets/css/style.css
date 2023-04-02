@@ -16,7 +16,7 @@
   --blue: #14418d;
   --blue-hover: #0f2f66;
 
-  --green-background: url(../img/green-background.jpg);
+  --green-background: url(../img/green-background.png);
   --green: #159382;
   --green-hover: #0f6e61;
 
@@ -100,4 +100,24 @@ body {
 
 .header-logo-link {
   margin-left: 25px;
+}
+
+.cherry-tree {
+  margin-left: 10px;
+}
+
+.cherry-tree .pink-leaf {
+  transition: 0.3s;
+}
+
+.cherry-tree .trunk {
+  transition: 0.3s;
+}
+
+.cherry-tree:hover .pink-leaf {
+  fill:  #ff99cc;
+}
+
+.cherry-tree:hover .trunk{
+  fill: rgb(165, 77, 42);
 }
