@@ -16,7 +16,7 @@
   --blue: #14418d;
   --blue-hover: #0f2f66;
 
-  --green-background: url(../img/green-background.jpg);
+  --green-background: url(../img/green-background.png);
   --green: #159382;
   --green-hover: #0f6e61;
 
@@ -53,10 +53,9 @@
   padding: 0;
  }
 
-body {
+ body {
   width: 100%;
   height: 100vh;
-  min-height: 100vh;
   background-image: var(--main-background);
   background-position: center;
   background-repeat: no-repeat;
@@ -85,6 +84,8 @@ body {
   text-align: center;
 }
 
+/* Universal button used on the age */
+
 .universal-btn {
   color: var(--text-color);
   margin: 10px;
@@ -92,12 +93,36 @@ body {
   border-radius: 8px;
   background-color: var(--main-color);
   border: none;
+  transition: 0.3s;
 }
 
 .universal-btn:hover {
   background-color: var(--main-color-hover);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .header-logo-link {
   margin-left: 25px;
+}
+
+.cherry-tree {
+  margin-left: 10px;
+  fill: var(--main-color);
+}
+
+.cherry-tree .pink-leaf {
+  transition: 0.3s;
+}
+
+
+.cherry-tree .trunk {
+  transition: 0.3s;
+}
+
+.cherry-tree:hover .pink-leaf {
+  fill:  #ff99cc;
+}
+
+.cherry-tree:hover .trunk{
+  fill: rgb(165, 77, 42);
 }

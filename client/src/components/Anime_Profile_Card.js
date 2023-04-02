@@ -41,14 +41,16 @@ const Anime_Profile_Card = (props) => {
   }
 
   return (
-    <div id={anime._id} className="col-12 col-xxl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center profile-card-wrapper">
+    <div id={anime._id} className="col-12 col-xxl-1 col-lg-2 col-md-4 col-sm-6 d-flex justify-content-center profile-card-wrapper">
       <div className="profile-card-container">
         <Link className="image-link" to={"/singleAnime"} state={anime}>
+          <div className="image-wrapper">
           <img
             className="profile-anime-img"
             src={anime.image}
             alt={anime.title}
           />
+          </div>
         </Link>
         <div className="profile-anime-title-container">
           <div className="profile-anime-title">

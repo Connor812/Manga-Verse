@@ -76,11 +76,12 @@ function Anime() {
 			</div>
 
 			<div className='row'>
-				{!result.data
-					? null
-					: result.data.map((anime, index) => {
+				{result.data
+					? result.data.map((anime, index) => {
 						return <Anime_Card key={index} animes={anime} />
-					})}
+					})
+					: null
+					}
 			</div>
 
 		</div>
