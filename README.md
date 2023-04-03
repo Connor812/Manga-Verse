@@ -17,7 +17,7 @@ Attention Anime and Manga lovers! This is a awesome website where you can browse
 
 GitHub Repo: [Manga Verse ⛩](https://github.com/Connor812/Project-3.git)
 
-Deployed Link: [Manga Verse ⛩ Offical Website](https://apple-crumble-42698.herokuapp.com/)
+Deployed Link: [Manga Verse ⛩ Offical Website](https://manga-verse.herokuapp.com/)
 
 ## Usage🔋
 
